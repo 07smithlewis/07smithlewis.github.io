@@ -109,6 +109,7 @@ class Commands {
       if (this.readyState == 4 && this.status == 200) {
         commandsDataDump = JSON.parse(this.responseText);
         console.log(this.responseText);
+        console.log(commandsDataDump);
       }
     };
     console.log(commandsDataDump);

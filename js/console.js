@@ -102,7 +102,7 @@ class UserInterface {
 class Commands {
   constructor() {
     this.commandsData = undefined;
-    commandsDataDump = undefined
+    var commandsDataDump = undefined;
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {

@@ -1,5 +1,5 @@
 {
-  "welcome wagon": "test",
+  "welcome wagon": "test<br>test",
   "responses": {
     "help": "help response",
     "default": "default response"

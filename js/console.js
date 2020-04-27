@@ -107,6 +107,7 @@ class Commands {
     console.log('waitiing for state change...')
     xmlhttp.onreadystatechange = function() {
       console.log(this.status);
+      console.log(this.readyState);
       if (this.readyState == 4 && this.status == 200) {
         commandsDataDump = JSON.parse(this.responseText);
       }
@@ -138,5 +139,3 @@ console.log('test log');
 commands = new Commands;
 var userInterface = new UserInterface(commands);
 userInterface.initialize();
-
-//console output needs to ba added to a buffer ready to be typed as javascript doesnt run liearly

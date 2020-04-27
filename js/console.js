@@ -6,13 +6,13 @@ class UserInterface {
     this.typing = 0;
     this.cursorToggled = 0
     this.fontSize = 16
-    this.newline = '</code>' + '<br>' + '<code>'
+    this.newline = '</pre>' + '<br>' + '<pre>'
     this.typeSpeed = 10
     this.newlineDelay = 200
   }
 
    drawScreen() {
-    var screenFormat = '<code>' + this.consoleHistory + this.newline + '> ' + this.consoleState + '</code>';
+    var screenFormat = '<pre>' + this.consoleHistory + this.newline + '> ' + this.consoleState + '</pre>';
     if (this.cursorToggled === 1) {
       screenFormat += '_';
     }

@@ -85,7 +85,7 @@ class UserInterface {
       if (uiObject.commands.commandsData == undefined) {
         setTimeout(consoleMessage, 5, uiObject);
       } else {
-        console.log(uiObject.commands.commandsData);
+        console.log(JSON.stringify(uiObject.commands.commandsData));
         uiObject.updateConsoleHistory(uiObject.commands.commandsData['welcome wagon']);
       }
     }

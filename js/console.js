@@ -93,13 +93,24 @@ class UserInterface {
 
 class Commands {
   constructor() {
-    const fs = require('fs')
-
-    fs.readFile('data/console.txt', (err, data) => { 
-      if (err) throw err;
-
-      this.commandsData = JSON.parse(data);
-    })
+    this.commandsData = undefined;
+    var commandsDataDump = undefined;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        commandsDataDump = JSON.parse(this.responseText);
+      }
+    };
+    xmlhttp.open("GET", "./data/console.txt", true);
+    xmlhttp.send();
+    function setCommandsData(commandsData, commandsDataDump) {
+      if (commandsDataDump == undefined) {
+        setTimeout(setCommandsData, 5, commandsData, commandsDataDump);
+      } else {
+        commandsData = commandsDataDump;
+      }
+    }
+    setCommandsData(this.commandsData, commandsDataDump);
   }
 
   read(command) {

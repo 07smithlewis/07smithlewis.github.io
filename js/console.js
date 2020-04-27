@@ -6,13 +6,12 @@ class UserInterface {
     this.typing = 0;
     this.cursorToggled = 0
     this.fontSize = 16
-    this.newline = '\n'
     this.typeSpeed = 10
     this.newlineDelay = 300
   }
 
    drawScreen() {
-    var screenFormat = '<pre>' + this.consoleHistory + this.newline + '> ' + this.consoleState;
+    var screenFormat = '<pre>' + this.consoleHistory + '\n> ' + this.consoleState;
     if (this.cursorToggled === 1) {
       screenFormat += '_';
     }
@@ -28,7 +27,7 @@ class UserInterface {
       if (outputObject.typing === 0) {
         outputObject.typing = 1;
 
-        outputObject.consoleHistory += outputObject.newline;
+        outputObject.consoleHistory += '\n';
         outputObject.drawScreen();
         var i = 0;
         function addChar(outputObject) {

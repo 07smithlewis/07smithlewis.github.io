@@ -6,7 +6,7 @@ class UserInterface {
     this.typing = 0;
     this.cursorToggled = 0
     this.fontSize = 16
-    this.newline = '</pre>' + '\n' + '<pre>'
+    this.newline = '</pre>\n<pre>'
     this.typeSpeed = 10
     this.newlineDelay = 200
   }

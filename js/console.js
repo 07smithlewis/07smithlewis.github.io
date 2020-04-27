@@ -103,10 +103,7 @@ class Commands {
   constructor() {
     this.commandsData = undefined;
     var commandsDataDump = undefined;
-    function whatIsItNow() {
-      console.log(commandsDataDump);
-    }
-    setInterval(whatIsItNow, 100);
+
     var xmlhttp = new XMLHttpRequest();
     console.log('waitiing for state change...')
     xmlhttp.onreadystatechange = function() {
@@ -117,9 +114,11 @@ class Commands {
     };
     xmlhttp.open("GET", "./data/console.txt", true);
     xmlhttp.send();
+
     function setCommandsData(commandsData, commandsDataDump) {
-      if (commandsDataDump == undefined) {
-        setTimeout(setCommandsData, 5, commandsData, commandsDataDump);
+      if (commandsDataDump === undefined) {
+        console.log(commandsDataDump);
+        setTimeout(setCommandsData, 100, commandsData, commandsDataDump);
       } else {
         console.log(commandsDataDump);
         commandsData = commandsDataDump;

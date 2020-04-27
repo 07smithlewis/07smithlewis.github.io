@@ -134,6 +134,7 @@ class Commands {
   }
 }
 
+console.log('test log');
 commands = new Commands;
 var userInterface = new UserInterface(commands);
 userInterface.initialize();

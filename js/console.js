@@ -89,7 +89,7 @@ class UserInterface {
         uiObject.updateConsoleHistory(uiObject.commands.commandsData['welcome wagon']);
       }
     }
-    setCommandsData(this);
+    consoleMessage(this);
   }
 
   getPageWidth() {

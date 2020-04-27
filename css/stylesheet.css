@@ -17,6 +17,7 @@ pre {
 
 .left {
   width:10%;
+  left:0%;
 }
 
 .main {
@@ -26,6 +27,7 @@ pre {
 
 .right {
   width:10%;
+  left:90%;
 }
 
 .left, .right, .main {
@@ -42,5 +44,6 @@ pre {
 @media screen and (max-width:800px) {
   .left, .main, .right {
     width:100%;
+    left:0%;
   }
 }

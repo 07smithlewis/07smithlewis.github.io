@@ -28,7 +28,7 @@ export class UserInterface {
       if (outputObject.typing === 0) {
         outputObject.typing = 1;
 
-        outputObject.consoleHistory += '\n';
+        outputObject.consoleHistory += '\n\n';
         outputObject.drawScreen();
         var i = 0;
         function addChar(outputObject) {

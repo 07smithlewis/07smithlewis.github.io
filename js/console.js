@@ -102,14 +102,12 @@ class UserInterface {
 class Commands {
   constructor() {
     this.commandsData = undefined;
-    var commandsDataDump = undefined;
+    this.commandsDataDump = undefined;
 
     var xmlhttp = new XMLHttpRequest();
-    console.log('waitiing for state change...')
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         commandsDataDump = JSON.parse(this.responseText);
-        console.log(this.responseText);
       }
     };
     xmlhttp.open("GET", "./data/console.txt", true);
@@ -117,8 +115,7 @@ class Commands {
 
     function setCommandsData(commandsData, commandsDataDump) {
       if (commandsDataDump === undefined) {
-        console.log(commandsDataDump);
-        setTimeout(setCommandsData, 100, commandsData, commandsDataDump);
+        setTimeout(setCommandsData, 5, commandsData, commandsDataDump);
       } else {
         commandsData = commandsDataDump;
       }

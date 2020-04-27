@@ -1,13 +1,6 @@
 {
-  "welcome wagon": "
-  _____           _ _   _       _   _      _
-/  ___|         (_) | | |     | \ | |    | |
-\ `--. _ __ ___  _| |_| |__   |  \| | ___| |_
-`--. \ '_ ` _ \| | __| '_ \  | . ` |/ _ \ __|
-/\__/ / | | | | | | |_| | | | | |\  |  __/ |_
-\____/|_| |_| |_|_|\__|_| |_| \_| \_/\___|\__|",
-  "responses":
-  {
+  "welcome wagon": "welcome wagon",
+  "responses": {
     "help": "help response",
     "default": "default response"
   }

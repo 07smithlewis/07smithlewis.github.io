@@ -1,4 +1,4 @@
-import * from 'console.js'
+import {UserInterface, Commands} from 'console.js';
 
 commands = new Commands;
 var userInterface = new UserInterface(commands, 'text');

@@ -1,4 +1,4 @@
- export class UserInterface {
+export class UserInterface {
   constructor(commandsObject, htmlElementId) {
     this.commands = commandsObject;
     this.htmlElementId = htmlElementId;

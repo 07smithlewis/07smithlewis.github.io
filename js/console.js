@@ -6,7 +6,7 @@ class UserInterface {
     this.typing = 0;
     this.cursorToggled = 0
     this.fontSize = 16
-    this.newline = '</pre><br><pre>'
+    this.newline = '\n'
     this.typeSpeed = 10
     this.newlineDelay = 300
   }
@@ -33,13 +33,8 @@ class UserInterface {
         var i = 0;
         function addChar(outputObject) {
           if (i < text.length) {
-            if (text.charAt(i) == '<' && text.length - i >= 4 && text.slice(i, i+4) == '<br>') {
-              i += 4;
-              outputObject.consoleHistory += outputObject.newline;
-            } else {
-              outputObject.consoleHistory += text.charAt(i);
-              i++;
-            }
+            outputObject.consoleHistory += text.charAt(i);
+            i++;
             outputObject.drawScreen();
             setTimeout(addChar, outputObject.typeSpeed, outputObject)
           } else {

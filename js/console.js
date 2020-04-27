@@ -103,13 +103,16 @@ class Commands {
   constructor() {
     this.commandsData = undefined;
     var commandsDataDump = undefined;
+    function whatIsItNow() {
+      console.log(commandsDataDump);
+    }
     var xmlhttp = new XMLHttpRequest();
     console.log('waitiing for state change...')
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         commandsDataDump = JSON.parse(this.responseText);
         console.log(this.responseText);
-        console.log(commandsDataDump);
+        whatIsItNow();
       }
     };
     xmlhttp.open("GET", "./data/console.txt", true);

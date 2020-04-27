@@ -33,8 +33,13 @@ class UserInterface {
         var i = 0;
         function addChar(outputObject) {
           if (i < text.length) {
-            outputObject.consoleHistory += text.charAt(i);
-            i++;
+            if (text.charAt(i) == '<' && text.length - i >= 4 && text.slice(i, i+4) == '<br>') {
+              i += 4;
+              outputObject.consoleHistory += outputObject.newline;
+            } else {
+              outputObject.consoleHistory += text.charAt(i);
+              i++;
+            }
             outputObject.drawScreen();
             setTimeout(addChar, outputObject.typeSpeed, outputObject)
           } else {

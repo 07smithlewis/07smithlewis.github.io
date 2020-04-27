@@ -1,5 +1,5 @@
 {
-  "welcome wagon": "welcome wagon",
+  "welcome wagon": " _____             _  _    _       _   _        _   ",
   "responses": {
     "help": "help response",
     "default": "default response"

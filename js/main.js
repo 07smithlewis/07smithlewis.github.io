@@ -1,5 +1,5 @@
 import {UserInterface, Commands} from './console.js';
 
-commands = new Commands;
+var commands = new Commands("../data/console.JSON");
 var userInterface = new UserInterface(commands, 'text');
 userInterface.initialize();

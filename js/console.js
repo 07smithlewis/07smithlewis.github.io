@@ -101,7 +101,7 @@ export class UserInterface {
 }
 
 export class Commands {
-  constructor() {
+  constructor(commandJSON) {
     this.commandsData = undefined;
     var commandsDataDump = undefined;
 
@@ -111,7 +111,7 @@ export class Commands {
         commandsDataDump = JSON.parse(this.responseText);
       }
     };
-    xmlhttp.open("GET", "./data/console.JSON", true);
+    xmlhttp.open("GET", commandJSON, true);
     xmlhttp.send();
 
     function setCommandsData(commandsObject) {

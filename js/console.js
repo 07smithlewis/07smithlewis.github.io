@@ -81,7 +81,14 @@ class UserInterface {
       this.drawScreen();
     });
 
-    this.updateConsoleHistory(this.commands.commandsData['welcome wagon'])
+    function consoleMessage(uiObject) {
+      if (uiObject.commands.commandsData == undefined) {
+        setTimeout(consoleMessage, 5, uiObject);
+      } else {
+        uiObject.updateConsoleHistory(uiObject.commands.commandsData['welcome wagon']);
+      }
+    }
+    setCommandsData(this);
   }
 
   getPageWidth() {
@@ -116,10 +123,10 @@ class Commands {
   read(command) {
     switch (command.toLowerCase()) {
       case 'help':
-        return this.commandsData[responses]['help'];
+        return this.commandsData['responses']['help'];
         break;
       default:
-        return this.commandsData[responses]['default'];
+        return this.commandsData['responses']['default'];
     }
   }
 }

@@ -8,7 +8,7 @@ class UserInterface {
     this.fontSize = 16
     this.newline = '</pre><br><pre>'
     this.typeSpeed = 10
-    this.newlineDelay = 200
+    this.newlineDelay = 300
   }
 
    drawScreen() {

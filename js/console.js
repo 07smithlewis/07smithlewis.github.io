@@ -102,7 +102,12 @@ class UserInterface {
 class Commands {
   constructor() {
     this.commandsData = undefined;
-    this.commandsDataDump = undefined;
+    var commandsDataDump = undefined
+    this.commandsDataDump = commandsDataDump;
+    function what() {
+      console.log(this.commandsDataDump);
+    }
+    setInterval(what, 100);
 
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -112,6 +117,8 @@ class Commands {
     };
     xmlhttp.open("GET", "./data/console.txt", true);
     xmlhttp.send();
+
+
 
     function setCommandsData(commandsData, commandsDataDump) {
       if (commandsDataDump === undefined) {

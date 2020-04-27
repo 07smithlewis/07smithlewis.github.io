@@ -111,6 +111,7 @@ class Commands {
         console.log(this.responseText);
       }
     };
+    console.log(commandsDataDump);
     xmlhttp.open("GET", "./data/console.txt", true);
     xmlhttp.send();
     function setCommandsData(commandsData, commandsDataDump) {

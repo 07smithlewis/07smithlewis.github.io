@@ -112,9 +112,9 @@ class Commands {
         console.log(commandsDataDump);
       }
     };
-    console.log(commandsDataDump);
     xmlhttp.open("GET", "./data/console.txt", true);
     xmlhttp.send();
+    console.log(commandsDataDump);
     function setCommandsData(commandsData, commandsDataDump) {
       if (commandsDataDump == undefined) {
         setTimeout(setCommandsData, 5, commandsData, commandsDataDump);

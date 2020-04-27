@@ -120,7 +120,6 @@ class Commands {
         console.log(commandsDataDump);
         setTimeout(setCommandsData, 100, commandsData, commandsDataDump);
       } else {
-        console.log(commandsDataDump);
         commandsData = commandsDataDump;
       }
     }

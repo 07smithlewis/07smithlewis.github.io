@@ -104,6 +104,7 @@ class Commands {
     this.commandsData = undefined;
     var commandsDataDump = undefined;
     var xmlhttp = new XMLHttpRequest();
+    console.log('waitiing for state change...')
     xmlhttp.onreadystatechange = function() {
       console.log(this.status);
       if (this.readyState == 4 && this.status == 200) {

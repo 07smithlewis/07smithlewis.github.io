@@ -22,6 +22,7 @@ export class UserInterface {
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
 
     if (this.consoleHistory !== this.consoleHistoryDisplayed) {
+      this.consoleHistoryDisplayed = this.consoleHistory;
       var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }

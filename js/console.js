@@ -7,7 +7,7 @@ export class UserInterface {
     this.typing = 0;
     this.cursorToggled = 0;
     this.fontSize = 14;
-    this.typeSpeed = 8;
+    this.typeSpeed = 5;
     this.newlineDelay = 300;
   }
 

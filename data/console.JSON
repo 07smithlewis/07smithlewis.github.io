@@ -3,7 +3,7 @@
   "commands": {
     "help": {
       "response": "For more info on a specific command type HELP [command]\nCommand list:\nCV        View my current resume\nGIT       Go to my GitHub\nLINK      Go to my LinkedIn\nMSG       Leave me a message\nHELP      Display command list",
-      "help": "Displays help information on all commands.\n\nHELP [command]:\n    Displays help information on given command",
+      "help": "Displays help information on all commands.\n\nHELP [command]:\n\n    Displays help information on given command",
       "default": "Command not found"
     },
     "cv": {

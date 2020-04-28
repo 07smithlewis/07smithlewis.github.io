@@ -45,7 +45,7 @@ commands.read = function read(command) {
       break;
     case 'cv':
       function typingPause() {
-        if (userInterface.typing == 0 || cv == undefined) {
+        if (userInterface.typing == 0 && cv !== undefined) {
           userInterface.clearScreen();
           userInterface.updateConsoleHistory(cv['title']);
         } else {

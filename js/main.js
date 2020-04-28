@@ -38,16 +38,14 @@ commands.read = function read(command) {
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.readyState);
-          console.log(this.status);
           cv = JSON.parse(this.responseText);
-          console.log(cv);
         }
       };
       xmlhttp.open("GET", "../data/cv.JSON", true);
       xmlhttp.send();
       function typingPause() {
         if (userInterface.typing == 0 && cv !== undefined) {
+          console.log(cv);
           userInterface.clearScreen();
           userInterface.updateConsoleHistory(cv['title']);
         } else {

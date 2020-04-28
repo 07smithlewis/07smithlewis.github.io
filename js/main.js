@@ -36,10 +36,10 @@ commands.read = function read(command) {
       return commands.consoleResponses['cv']['response'];
       break;
     case 'git':
-      window.location.href = commands.consoleResponses['git']['hyperlink'];
+      window.location.assign(commands.consoleResponses['git']['hyperlink']);
       break;
     case 'link':
-      window.location.href = commands.consoleResponses['link']['hyperlink'];
+      window.location.assign(commands.consoleResponses['link']['hyperlink']);
       break;
     case 'msg':
       return commands.consoleResponses['msg']['response'];

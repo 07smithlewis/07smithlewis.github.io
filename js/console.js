@@ -1,7 +1,8 @@
 export class UserInterface {
-  constructor(commandsObject, htmlElementId) {
+  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput) {
     this.commands = commandsObject;
-    this.htmlElementId = htmlElementId;
+    this.htmlElementIdInput = htmlElementIdInput;
+    this.htmlElementIdOutput = htmlElementIdOutput;
     this.consoleState = '';
     this.consoleHistory = '';
     this.typing = 0;
@@ -12,12 +13,17 @@ export class UserInterface {
   }
 
    drawScreen() {
-    var screenFormat = '<pre>' + this.consoleHistory + '\n> ' + this.consoleState;
+    var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
+    var screenFormatInput = '<pre>> ' + this.consoleState;
     if (this.cursorToggled === 1) {
-      screenFormat += '_';
+      screenFormatInput += '_';
     }
-    screenFormat += '</pre>'
-    document.getElementById(this.htmlElementId).innerHTML = screenFormat;
+    screenFormatInput += '</pre>';
+
+    document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
+    if (document.getElementById(this.screenFormatOutput).innerHTML != screenFormatOutput) {
+      document.getElementById(this.screenFormatOutput = screenFormatOutput;
+    }
   }
 
   updateConsoleHistory(text) {

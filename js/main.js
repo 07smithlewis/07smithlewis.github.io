@@ -4,16 +4,6 @@ var commands = new Commands("../data/console.JSON");
 var userInterface = new UserInterface(commands, 'input', 'output');
 userInterface.initialize();
 
-var cv = undefined;
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    cv = JSON.parse(this.responseText);
-  }
-};
-xmlhttp.open("GET", "../data/cv.JSON", true);
-xmlhttp.send();
-
 commands.read = function read(command) {
 
   var commandSplit = command.toLowerCase().split(/[ ]+/);
@@ -45,6 +35,16 @@ commands.read = function read(command) {
       break;
     case 'cv':
       function typingPause() {
+        var cv = undefined;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            cv = JSON.parse(this.responseText);
+          }
+        };
+        xmlhttp.open("GET", "../data/cv.JSON", true);
+        xmlhttp.send();
+
         if (userInterface.typing == 0 && cv !== undefined) {
           userInterface.clearScreen();
           userInterface.updateConsoleHistory(cv['title']);

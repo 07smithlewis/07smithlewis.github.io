@@ -10,6 +10,7 @@ export class UserInterface {
     this.fontSize = 14;
     this.typeSpeed = 5;
     this.newlineDelay = 300;
+    document.getElementById(this.screenFormatOutput).innerHTML = ''
   }
 
    drawScreen() {

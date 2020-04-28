@@ -22,7 +22,7 @@ export class UserInterface {
 
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
     if (document.getElementById(this.screenFormatOutput).innerHTML != screenFormatOutput) {
-      document.getElementById(this.screenFormatOutput = screenFormatOutput;
+      document.getElementById(this.screenFormatOutput).innerHTML = screenFormatOutput;
     }
   }
 

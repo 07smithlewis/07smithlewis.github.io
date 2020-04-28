@@ -49,6 +49,7 @@ commands.read = function read(command) {
           userInterface.clearScreen();
           userInterface.updateConsoleHistory(cv['title']);
         } else {
+          console.log(cv);
           setTimeout(typingPause, userInterface.typeSpeed);
         }
       }

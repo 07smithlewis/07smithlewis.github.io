@@ -39,6 +39,8 @@ commands.read = function read(command) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
+            console.log(this.readyState);
+            console.log(this.status);
             cv = JSON.parse(this.responseText);
           }
         };
@@ -49,7 +51,6 @@ commands.read = function read(command) {
           userInterface.clearScreen();
           userInterface.updateConsoleHistory(cv['title']);
         } else {
-          console.log(cv);
           setTimeout(typingPause, userInterface.typeSpeed);
         }
       }

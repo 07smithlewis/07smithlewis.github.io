@@ -6,8 +6,8 @@ export class UserInterface {
     this.consoleHistory = '';
     this.typing = 0;
     this.cursorToggled = 0;
-    this.fontSize = 16;
-    this.typeSpeed = 10;
+    this.fontSize = 14;
+    this.typeSpeed = 8;
     this.newlineDelay = 300;
   }
 
@@ -83,11 +83,10 @@ export class UserInterface {
     });
 
     function consoleMessage(uiObject) {
-      if (uiObject.commands.commandsData == undefined) {
+      if (uiObject.commands.consoleStart == undefined) {
         setTimeout(consoleMessage, 5, uiObject);
       } else {
-        console.log(JSON.stringify(uiObject.commands.commandsData));
-        uiObject.updateConsoleHistory(uiObject.commands.commandsData['welcome wagon']);
+        uiObject.updateConsoleHistory(uiObject.commands.consoleStart);
       }
     }
     consoleMessage(this);
@@ -101,8 +100,9 @@ export class UserInterface {
 }
 
 export class Commands {
-  constructor(commandJSON) {
-    this.commandsData = undefined;
+  constructor(consoleJSON) {
+    this.consoleStart = undefined;
+    this.consoleResponses = undefined;
     var commandsDataDump = undefined;
 
     var xmlhttp = new XMLHttpRequest();
@@ -111,26 +111,24 @@ export class Commands {
         commandsDataDump = JSON.parse(this.responseText);
       }
     };
-    xmlhttp.open("GET", commandJSON, true);
+    xmlhttp.open("GET", consoleJSON, true);
     xmlhttp.send();
 
     function setCommandsData(commandsObject) {
       if (commandsDataDump == undefined) {
         setTimeout(setCommandsData, 5, commandsObject);
       } else {
-        commandsObject.commandsData = commandsDataDump;
+        commandsObject.consoleStart = commandsDataDump['welcome wagon'];
+        commandsObject.consoleResponses = commandsDataDump['commands']
       }
     }
     setCommandsData(this);
   }
 
   read(command) {
-    switch (command.toLowerCase()) {
-      case 'help':
-        return this.commandsData['responses']['help'];
-        break;
+    switch (command.toLowerCase().split(" ")[0]) {
       default:
-        return this.commandsData['responses']['default'];
+        return this.consoleResponses['default'];
     }
   }
 }

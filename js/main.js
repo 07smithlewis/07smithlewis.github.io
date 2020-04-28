@@ -45,9 +45,16 @@ commands.read = function read(command) {
       xmlhttp.send();
       function typingPause() {
         if (userInterface.typing == 0 && cv !== undefined) {
-          console.log(cv);
+
           userInterface.clearScreen();
           userInterface.updateConsoleHistory(cv['title']);
+          var i;
+          for (i = 0; i < cv['headings'].length; i++) {
+            userInterface.updateConsoleHistory(
+              '\n\n' + cv['headings'][i] + "\n\n" + cv['content'][i]
+            );
+          }
+
         } else {
           setTimeout(typingPause, userInterface.typeSpeed);
         }

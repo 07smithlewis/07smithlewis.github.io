@@ -11,10 +11,12 @@
       "help": "Load a copy of my current resume in this window"
     },
     "git": {
+      "response": "",
       "hyperlink": "https://github.com/07smithlewis",
       "help": "Redirect to my GitHub profile"
     },
     "link": {
+      "response": "",
       "hyperlink": "https://www.linkedin.com/in/smithle/",
       "help": "Redirect to my LinkedIn profile"
     },

@@ -53,12 +53,15 @@ commands.read = function read(command) {
         }
       }
       typingPause();
+      return commands.consoleResponses['cv']['response'];;
       break;
     case 'git':
       window.location.assign(commands.consoleResponses['git']['hyperlink']);
+      return commands.consoleResponses['git']['response'];
       break;
     case 'link':
       window.location.assign(commands.consoleResponses['link']['hyperlink']);
+      return commands.consoleResponses['link']['response'];
       break;
     case 'msg':
       return commands.consoleResponses['msg']['response'];

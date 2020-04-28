@@ -30,7 +30,7 @@ export class UserInterface {
 
   clearScreen() {
     this.consoleHistory = '';
-    drawScreen();
+    this.drawScreen();
   }
 
   updateConsoleHistory(text) {

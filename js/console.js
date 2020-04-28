@@ -10,7 +10,6 @@ export class UserInterface {
     this.fontSize = 14;
     this.typeSpeed = 5;
     this.newlineDelay = 300;
-    document.getElementById(this.screenFormatOutput).innerHTML = ''
   }
 
    drawScreen() {
@@ -22,8 +21,8 @@ export class UserInterface {
     screenFormatInput += '</pre>';
 
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
-    if (document.getElementById(this.screenFormatOutput).innerHTML != screenFormatOutput) {
-      document.getElementById(this.screenFormatOutput).innerHTML = screenFormatOutput;
+    if (document.getElementById(this.htmlElementIdOutput).innerHTML != screenFormatOutput) {
+      document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
   }
 

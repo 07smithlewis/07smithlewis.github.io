@@ -21,7 +21,7 @@ export class UserInterface {
     screenFormatInput += '</pre>';
 
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
-    if (document.getElementById(this.htmlElementIdOutput).innerHTML != screenFormatOutput) {
+    if (document.getElementById(this.htmlElementIdOutput).innerHTML !== screenFormatOutput) {
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
   }

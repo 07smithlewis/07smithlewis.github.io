@@ -51,7 +51,7 @@ commands.read = function read(command) {
           var i;
           for (i = 0; i < cv['headings'].length; i++) {
             userInterface.updateConsoleHistory(
-              '\n\n' + cv['headings'][i] + "\n\n" + cv['content'][i]
+              cv['headings'][i] + "\n\n" + cv['content'][i]
             );
           }
 

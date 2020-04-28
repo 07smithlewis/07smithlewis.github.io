@@ -4,6 +4,16 @@ var commands = new Commands("../data/console.JSON");
 var userInterface = new UserInterface(commands, 'input', 'output');
 userInterface.initialize();
 
+var cv = undefined;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    cv = JSON.parse(this.responseText);
+  }
+};
+xmlhttp.open("GET", "../data/cv.JSON", true);
+xmlhttp.send();
+
 commands.read = function read(command) {
   var commandSplit = command.toLowerCase().split(/[ ]+/);
   switch (commandSplit[0]) {
@@ -33,7 +43,8 @@ commands.read = function read(command) {
       }
       break;
     case 'cv':
-      return commands.consoleResponses['cv']['response'];
+      userInterface.clearScreen();
+      userInterface.updateConsoleHistory(cv['title']);
       break;
     case 'git':
       window.location.assign(commands.consoleResponses['git']['hyperlink']);

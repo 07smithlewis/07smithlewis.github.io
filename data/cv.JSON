@@ -1,0 +1,21 @@
+{
+  "Title": " _                   _       _____           _ _   _     \n| |                 (_)     /  ___|         (_) | | |    \n| |     _____      ___ ___  \ `--. _ __ ___  _| |_| |__  \n| |    / _ \ \ /\ / / / __|  `--. \ '_ ` _ \| | __| '_ \ \n| |___|  __/\ V  V /| \__ \ /\__/ / | | | | | | |_| | | |\n\_____/\___| \_/\_/ |_|___/ \____/|_| |_| |_|_|\__|_| |_|\n",
+  "headings": [
+    "Contact information",
+    "Education",
+    "Employment History",
+    "Skills",
+    "Other Experience"
+  ],
+  "content": [
+    "25 Uppingham Rd, Houghton on the Hill, Leicestershire, UK, LE7 9HJ\nPhone:       +44 7 455 958 189\nEmail:       lewis@smithle.co.uk",
+
+    "2015-2019  MPhys Master of Physics\n           University of Oxford (Jesus College)\n           • Major options: Theoretical Physics, Particle physicist\n           • Masters Project: 'Photon recognition algorithms for dark matter searches' supervised by Prof Hans Kraus; Creating a simulation of the data produced by the R11410-10 3-Inch Photomultiplier Tube used in the LUX-ZEPLIN (LZ) dark matter experiment, and then producing an algorithm to accurately find the times of detection events in that data. I am also evaluating possible ways deep neural networks can be applied to this type of detection problem.\n           • Classification: 2:2\n\n2013-2015  A-Level’s\n           Sixth Form, Ratcliffe College\n           • Mathematics (A*), Further Mathematics (A), Physics (A)\n           • Gold CREST Award (For a project on recycled polymer materials)\n           • UK Senior Mathematical Challenge (Bronze)\n\n2011-2013  GCSE’s\n           Ratcliffe College\n           • 11 GCSE’s (4 A*, 3 A, 3 B, C) including Mathematics (A*), Further Mathematics (A*), Physics (A*)\n           • UK Intermediate Mathematical Challenge (Gold)",
+
+    "2018-2019  Reasearch Assistant\n           University of Oxford\n           I was part of a research team working with the LUX-ZEPLIN (LZ) collaboration. My task during this time was to determine the viability of new detection algorithms to analyse their sensor data.",
+
+    "Programming\n      I have over 8 years of programming experience, and as a consequence I am proficient in many programming languages, from low-level compiled languages to interpreted languages (Python, C, C++, HTML, Css, JavaScript, C#, Fortran,..)\n      I work mainly in python and have extensive experience with some of the most popular data science packages (Numpy, Scipy, Matplotlib, Tensorflow)",
+
+    "2017  Computational Fluid Dynamics Summer Study Internship (Perm State National Research University, Russia)\n      • Programming Skills: Parallel Programming with MPI and OpenMP using Fortran/C\n\n2020  MIT OpenCourseware: 6.046J Design and Analysis of Algorithms\n      • Computer Science\n      Course Description:\n      This is an intermediate algorithms course with an emphasis on teaching techniques for the design and analysis of efficient algorithms, emphasizing methods of application. Topics include divide-and-conquer, randomization, dynamic programming, greedy algorithms, incremental improvement, complexity, and cryptography.\n\n2020  MIT OpenCourseware: 6.006 Introduction to Algorithms\n      • Computer Science\n      Course Description: \n      This course provides an introduction to mathematical modeling of computational problems. It covers the common algorithms, algorithmic paradigms, and data structures used to solve these problems. The course emphasizes the relationship between algorithms and programming, and introduces basic performance measures and analysis techniques for these problems."
+  ]
+}

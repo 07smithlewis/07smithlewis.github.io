@@ -28,6 +28,11 @@ export class UserInterface {
     }
   }
 
+  clearScreen() {
+    this.consoleHistory = '';
+    drawScreen();
+  }
+
   updateConsoleHistory(text) {
     function typingComplete(outputObject) {
       outputObject.typing = 0;

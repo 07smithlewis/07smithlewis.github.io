@@ -15,6 +15,7 @@ xmlhttp.open("GET", "../data/cv.JSON", true);
 xmlhttp.send();
 
 commands.read = function read(command) {
+
   var commandSplit = command.toLowerCase().split(/[ ]+/);
   switch (commandSplit[0]) {
     case 'help':
@@ -43,8 +44,15 @@ commands.read = function read(command) {
       }
       break;
     case 'cv':
-      userInterface.clearScreen();
-      userInterface.updateConsoleHistory(cv['title']);
+      function typingPause() {
+        if (userInterface.typing == 0) {
+          userInterface.clearScreen();
+          userInterface.updateConsoleHistory(cv['title']);
+        } else {
+          setTimeout(typingPause, userInterface.typeSpeed);
+        }
+      }
+      typingPause();
       break;
     case 'git':
       window.location.assign(commands.consoleResponses['git']['hyperlink']);

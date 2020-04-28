@@ -5,6 +5,7 @@ export class UserInterface {
     this.htmlElementIdOutput = htmlElementIdOutput;
     this.consoleState = '';
     this.consoleHistory = '';
+    this.consoleHistoryDisplayed = '';
     this.typing = 0;
     this.cursorToggled = 0;
     this.fontSize = 14;
@@ -13,17 +14,15 @@ export class UserInterface {
   }
 
    drawScreen() {
-    var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
     var screenFormatInput = '<pre>> ' + this.consoleState;
     if (this.cursorToggled === 1) {
       screenFormatInput += '_';
     }
     screenFormatInput += '</pre>';
-
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
-    if (document.getElementById(this.htmlElementIdOutput).innerText !== screenFormatOutput) {
-      console.log(document.getElementById(this.htmlElementIdOutput).innerText);
-      console.log(screenFormatOutput);
+
+    if (this.consoleHistory !== this.consoleHistoryDisplayed) {
+      var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
   }

@@ -22,7 +22,8 @@ export class UserInterface {
 
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
     if (document.getElementById(this.htmlElementIdOutput).innerText !== screenFormatOutput) {
-      console.log('history changed');
+      console.log(innerHTML);
+      console.log(screenFormatOutput);
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
   }

@@ -127,6 +127,30 @@ export class UserInterface {
     checkQue(this);
   }
 
+  updateConsoleHistoryInstant(text) {
+    var typingQueNumber = this.typingQue[0] + 1;
+    this.typingQue[0] += 1;
+
+    function typingComplete(outputObject) {
+      outputObject.typing = 0;
+      outputObject.typingQue[1] += 1;
+      if (outputObject.typingQue[0] == outputObject.typingQue[1]) {
+        outputObject.typingQue = [0, 0];
+      }
+    }
+    function checkQue(outputObject) {
+      if (outputObject.typing == 0 && outputObject.typingQue[1]+1 == typingQueNumber) {
+        outputObject.typing = 1;
+        outputObject.consoleHistory += text;
+        outputObject.drawScreen();
+        setTimeout(typingComplete, outputObject.newlineDelay, outputObject)
+      } else {
+        setTimeout(checkQue, outputObject.typeSpeed, outputObject);
+      }
+    }
+    checkQue(this);
+  }
+
   initialize() {
     function toggleCursor(outputObject) {
       if (outputObject.cursorToggled === 0) {

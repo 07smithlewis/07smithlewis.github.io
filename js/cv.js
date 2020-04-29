@@ -65,7 +65,7 @@ export class CvRead {
 
     function subsection(number) {
       userInterfaceObject.clearScreen();
-      userInterfaceObject.updateConsoleHistory(cv['title']);
+      userInterfaceObject.updateConsoleHistoryInstant(cv['title']);
       userInterfaceObject.updateConsoleHistory(
         cv['headings'][number] + "\n\n" + cv['content+'][number]
       );

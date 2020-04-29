@@ -18,6 +18,7 @@ function jsonLoader(file, callback) {
   }
   returnJson();
 }
+
 export class CvRead {
   constructor(commands, userInterface) {
     this.userInterface = userInterface;
@@ -59,10 +60,6 @@ export class CvRead {
     typingPause(this);
   }
 
-  resetRead() {
-    this.commands.read = this.readOld;
-  }
-
   read(command, userInterfaceObject) {
     var cv = this.cv;
 
@@ -92,7 +89,7 @@ export class CvRead {
         subsection(4);
         break;
       case "exit":
-        this.resetRead();
+        this.userInterface.commands = this.userInterface.commandsDefault;
         break;
       case "home":
         function typingPause() {
@@ -115,9 +112,5 @@ export class CvRead {
       default:
         return this.commands.consoleResponses['default'];
     }
-  }
-
-  overrideRead() {
-    this.commands.read = this.read;
   }
 }

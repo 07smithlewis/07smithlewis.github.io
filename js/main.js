@@ -32,8 +32,7 @@ commands.read = function read(command, userInterfaceObject) {
       }
       break;
     case 'cv':
-      var cvRead = new CvRead(commands, userInterface);
-      cvRead.overrideRead();
+      userInterface.commands = new CvRead(commands, userInterface);
       return commands.consoleResponses['cv']['response'];
       break;
     case 'git':

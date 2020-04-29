@@ -22,6 +22,7 @@ function jsonLoader(file, callback) {
 export class UserInterface {
   constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, divId) {
     this.commands = commandsObject;
+    this.commandsDefault = commandsObject;
     this.divId = divId;
     this.htmlElementIdInput = htmlElementIdInput;
     this.htmlElementIdOutput = htmlElementIdOutput;

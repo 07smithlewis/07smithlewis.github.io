@@ -1,4 +1,4 @@
-function jsonLoader(file, callback, cvReadObject) {
+function jsonLoader(file, callback) {
   var json = undefined;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -13,12 +13,11 @@ function jsonLoader(file, callback, cvReadObject) {
     if (json == undefined) {
       setTimeout(returnJson, 5);
     } else {
-      callback(json, cvReadObject);
+      callback(json);
     }
   }
   returnJson();
 }
-
 export class CvRead {
   constructor(commands, userInterface) {
     this.userInterface = userInterface;
@@ -26,16 +25,17 @@ export class CvRead {
     this.readOld = commands.read;
 
     var json = undefined;
-    function jsonLoaded(jsonDump, cvReadObject) {
+    function jsonLoaded(jsonDump) {
       json = jsonDump;
     }
-    jsonLoader('../data/cv.JSON', jsonLoaded, this);
+    jsonLoader('../data/cv.JSON', jsonLoaded);
 
     function dataReady(cvReadObject) {
       cvReadObject.cv = json;
     }
     function saveToObject(callback, cvReadObject) {
       if (json == undefined) {
+        console.log(json);
         setTimeout(saveToObject, 5, callback, cvReadObject);
       } else {
         callback(cvReadObject);

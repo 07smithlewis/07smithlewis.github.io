@@ -1,4 +1,4 @@
-function jsonLoader(file, callback) {
+function jsonLoader(file, callback, cvReadObject) {
   var json = undefined;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -13,7 +13,7 @@ function jsonLoader(file, callback) {
     if (json == undefined) {
       setTimeout(returnJson, 5);
     } else {
-      callback(json);
+      callback(json, cvReadObject);
     }
   }
   returnJson();
@@ -25,21 +25,20 @@ export class CvRead {
     this.commands = commands;
     this.readOld = commands.read;
 
-    var cvDump = undefined;
-    function jsonLoaded(jsonDump) {
+    function jsonLoaded(jsonDump, cvReadObject) {
       cvDump = jsonDump;
+      cvReadObject.cv = cvDump;
     }
-    jsonLoader('../data/cv.JSON', jsonLoaded);
-    this.cv = cvDump;
+    jsonLoader('../data/cv.JSON', jsonLoaded, cvReadObject);
 
     function typingPause() {
-      if (userInterface.typing == 0 && cvDump !== undefined) {
+      if (userInterface.typing == 0 && this.cv !== undefined) {
         userInterface.clearScreen();
-        userInterface.updateConsoleHistory(cvDump['title']);
+        userInterface.updateConsoleHistory(this.cv['title']);
         var i;
-        for (i = 0; i < cvDump['headings'].length; i++) {
+        for (i = 0; i < this.cv['headings'].length; i++) {
           userInterface.updateConsoleHistory(
-            cvDump['headings'][i] + "\n\n" + cvDump['content'][i]
+            this.cv['headings'][i] + "\n\n" + this.cv['content'][i]
           );
         }
       } else {

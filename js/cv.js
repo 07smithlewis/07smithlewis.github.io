@@ -56,7 +56,7 @@ export class CvRead {
         setTimeout(typingPause, userInterface.typeSpeed, cvReadObject);
       }
     }
-    typingPause(cvReadObject);
+    typingPause(this);
   }
 
   resetRead() {

@@ -32,7 +32,6 @@ export class UserInterface {
       var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
-    document.getElementById('main').scrollTop = 0;
 
     if (this.consoleHistory !== this.consoleHistoryDisplayed || this.consoleStateDisplayed !== this.consoleState) {
         this.scrollToBottom();

@@ -22,6 +22,7 @@ pre {
 
 .main {
   overflow:scroll;
+  padding-right:20%;
   width:80%;
   height:100%;
   left:10%;

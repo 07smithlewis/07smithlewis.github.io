@@ -94,14 +94,16 @@ export class CvRead {
         return "";
         break;
       case "exit":
+        userInterfaceObject.clearScreen();
+        userInterfaceObject.updateConsoleHistory(userInterfaceObject.commands.consoleStart);
         this.userInterface.commands = this.userInterface.commandsDefault;
         return "";
         break;
       case "home":
         function typingPause() {
-          if (userInterfaceObject.typing == 0 && cv !== undefined) {
+          if (cv !== undefined) {
             userInterfaceObject.clearScreen();
-            userInterfaceObject.updateConsoleHistory(cv['title']);
+            userInterfaceObject.updateConsoleHistoryInstant(cv['title']);
             var i;
             for (i = 0; i < cv['headings'].length; i++) {
               userInterfaceObject.updateConsoleHistory(

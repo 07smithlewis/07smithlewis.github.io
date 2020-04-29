@@ -28,6 +28,7 @@ export class CvRead {
     this.cv = undefined;
     function jsonLoaded(jsonDump, cvReadObject) {
       cvReadObject.cv = jsonDump;
+      console.log(jsonDump);
     }
     jsonLoader('../data/cv.JSON', jsonLoaded, this);
 

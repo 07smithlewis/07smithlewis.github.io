@@ -187,8 +187,8 @@ export class Commands {
       }
     }
 
-    commandsObject.consoleStart = extractProperty('welcome wagon');
-    commandsObject.consoleResponses = extractProperty('commands');
+    this.consoleStart = extractProperty('welcome wagon');
+    this.consoleResponses = extractProperty('commands');
   }
 
   read(command) {

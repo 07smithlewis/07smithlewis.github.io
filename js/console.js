@@ -175,16 +175,14 @@ export class UserInterface {
 export class Commands {
   constructor(consoleJSON) {
     var json = undefined;
-    function jsonLoaded(jsonDump) {
+    function jsonLoaded(jsonDump, commandsObject) {
       json = jsonDump;
     }
-    jsonLoader(consoleJSON, jsonLoaded);
-    
-    setInterval(function() {console.log(json)}, 100);
+    jsonLoader(consoleJSON, jsonLoaded, commmandsObject);
 
     function extractProperty(property) {
       if (json == undefined) {
-        setTimeout(extractProperty, 5, property);
+        setTimeout(return extractProperty(property), 5);
       } else {
         return json[property];
       }

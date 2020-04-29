@@ -1,10 +1,12 @@
 export class UserInterface {
-  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput) {
+  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, divId) {
     this.commands = commandsObject;
+    this.divId = divId;
     this.htmlElementIdInput = htmlElementIdInput;
     this.htmlElementIdOutput = htmlElementIdOutput;
     this.consoleState = '';
     this.consoleHistory = '';
+    this.consoleStateDisplayed = '';
     this.consoleHistoryDisplayed = '';
     this.typing = 0;
     this.cursorToggled = 0;
@@ -13,7 +15,12 @@ export class UserInterface {
     this.newlineDelay = 300;
   }
 
-   drawScreen() {
+  scrollToBottom() {
+    var div = document.getElementById(divId);
+    div.scrollTop = div.scrollHeight - div.clientHeight;
+  }
+
+  drawScreen() {
     var screenFormatInput = '<pre>> ' + this.consoleState;
     if (this.cursorToggled === 1) {
       screenFormatInput += '_';
@@ -22,11 +29,16 @@ export class UserInterface {
     document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
 
     if (this.consoleHistory !== this.consoleHistoryDisplayed) {
-      this.consoleHistoryDisplayed = this.consoleHistory;
       var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
-    window.scrollTo(0, 0);
+    document.getElementById('main').scrollTop = 0;
+
+    if (this.consoleHistory !== this.consoleHistoryDisplayed || this.consoleStateDisplayed !== this.consoleState) {
+        this.scrollToBottom();
+    }
+    this.consoleHistoryDisplayed = this.consoleHistory;
+    this.consoleStateDisplayed = this.consoleState;
   }
 
   clearScreen() {

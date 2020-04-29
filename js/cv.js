@@ -1,4 +1,4 @@
-function jsonLoader(file) {
+function jsonLoader(file, callback) {
   var json = undefined;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -13,10 +13,10 @@ function jsonLoader(file) {
     if (json == undefined) {
       setTimeout(returnJson, 5);
     } else {
-      return json;
+      callback(json);
     }
   }
-  return returnJson();
+  returnJson();
 }
 
 export class CvRead {
@@ -25,7 +25,11 @@ export class CvRead {
     this.commands = commands;
     this.readOld = commands.read;
 
-    var cvDump = jsonLoader('../data/cv.JSON');
+    var cvDump = undefined;
+    function jsonLoaded(jsonDump) {
+      cvDump = jsonDump;
+    }
+    jsonLoader('../data/cv.JSON', jsonLoaded)
     this.cv = cvDump;
 
     function typingPause() {

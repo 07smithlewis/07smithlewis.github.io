@@ -25,6 +25,7 @@ export class CvRead {
     this.commands = commands;
     this.readOld = commands.read;
 
+    this.cv = undefined;
     function jsonLoaded(jsonDump, cvReadObject) {
       cvReadObject.cv = jsonDump;
     }

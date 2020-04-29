@@ -78,7 +78,7 @@ export class UserInterface {
         addChar(outputObject)
 
       } else {
-        setTimeout(checkIfTyping, outputObject.typeSpeed, outputObject);
+        setTimeout(checkQue, outputObject.typeSpeed, outputObject);
       }
     }
     checkQue(this);

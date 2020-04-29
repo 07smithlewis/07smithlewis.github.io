@@ -16,7 +16,7 @@ export class UserInterface {
   }
 
   scrollToBottom() {
-    var div = document.getElementById(divId);
+    var div = document.getElementById(this.divId);
     div.scrollTop = div.scrollHeight - div.clientHeight;
   }
 

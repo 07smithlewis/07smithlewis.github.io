@@ -25,12 +25,23 @@ export class CvRead {
     this.commands = commands;
     this.readOld = commands.read;
 
-    this.cv = undefined;
+    var json = undefined;
     function jsonLoaded(jsonDump, cvReadObject) {
-      cvReadObject.cv = jsonDump;
-      console.log(jsonDump);
+      json = jsonDump;
     }
     jsonLoader('../data/cv.JSON', jsonLoaded, this);
+
+    function dataReady(cvReadObject) {
+      cvReadObject.cv = json;
+    }
+    function saveToObject(callback, cvReadObject) {
+      if (json == undefined) {
+        setTimeout(saveToObject, 5, callback, cvReadObject);
+      } else {
+        callback(cvReadObject);
+      }
+    }
+    saveToObject(dataReady, this);
 
     function typingPause() {
       if (userInterface.typing == 0 && this.cv !== undefined) {

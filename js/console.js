@@ -42,22 +42,38 @@ export class UserInterface {
   }
 
   clearScreen() {
-    this.consoleHistory = '';
-    this.drawScreen();
+    var typingQueNumber = this.typingQue[0] + 1;
+    this.typingQue[0] += 1;
+
+    function typingComplete(outputObject) {
+      outputObject.typing = 0;
+      outputObject.typingQue[1] += 1;
+      if (outputObject.typingQue[0] == outputObject.typingQue[1]) {
+        outputObject.typingQue = [0, 0];
+      }
+    }
+    function checkQue(outputObject) {
+      if (outputObject.typing == 0 && outputObject.typingQue[1]+1 == typingQueNumber) {
+        outputObject.typing = 1;
+        this.consoleHistory = '';
+        this.drawScreen();
+        setTimeout(typingComplete, outputObject.newlineDelay, outputObject)
+      } else {
+        setTimeout(checkQue, outputObject.typeSpeed, outputObject);
+      }
+    }
+    checkQue(this);
   }
 
   updateConsoleHistory(text) {
     var typingQueNumber = this.typingQue[0] + 1;
     this.typingQue[0] += 1;
-    console.log(this.typingQue);
 
     function typingComplete(outputObject) {
       outputObject.typing = 0;
       outputObject.typingQue[1] += 1;
-      console.log(outputObject.typingQue);
       if (outputObject.typingQue[0] == outputObject.typingQue[1]) {
         outputObject.typingQue = [0, 0];
-        console.log(outputObject.typingQue);
       }
     }
     function checkQue(outputObject) {

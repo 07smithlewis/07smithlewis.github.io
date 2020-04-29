@@ -33,9 +33,6 @@ export class UserInterface {
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
 
-    if (this.consoleHistory !== this.consoleHistoryDisplayed || this.consoleStateDisplayed !== this.consoleState) {
-        this.scrollToBottom();
-    }
     this.consoleHistoryDisplayed = this.consoleHistory;
     this.consoleStateDisplayed = this.consoleState;
   }

@@ -1,4 +1,5 @@
 import {UserInterface, Commands} from './console.js';
+import {CvRead} from './cv.js';
 
 var commands = new Commands("../data/console.JSON");
 var userInterface = new UserInterface(commands, 'input', 'output', 'main');
@@ -31,33 +32,9 @@ commands.read = function read(command) {
       }
       break;
     case 'cv':
-      var cv = undefined;
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          cv = JSON.parse(this.responseText);
-        }
-      };
-      xmlhttp.open("GET", "../data/cv.JSON", true);
-      xmlhttp.send();
-      function typingPause() {
-        if (userInterface.typing == 0 && cv !== undefined) {
-
-          userInterface.clearScreen();
-          userInterface.updateConsoleHistory(cv['title']);
-          var i;
-          for (i = 0; i < cv['headings'].length; i++) {
-            userInterface.updateConsoleHistory(
-              cv['headings'][i] + "\n\n" + cv['content'][i]
-            );
-          }
-
-        } else {
-          setTimeout(typingPause, userInterface.typeSpeed);
-        }
-      }
-      typingPause();
-      return commands.consoleResponses['cv']['response'];;
+      cvRead = new CvRead(commands, userInterface);
+      cvRead.overrideRead();
+      return commands.consoleResponses['cv']['response'];
       break;
     case 'git':
       window.location.assign(commands.consoleResponses['git']['hyperlink']);

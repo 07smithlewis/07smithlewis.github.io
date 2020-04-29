@@ -11,10 +11,8 @@ function jsonLoader(file) {
 
   function returnJson() {
     if (json == undefined) {
-      console.log(json);
       setTimeout(returnJson, 5);
     } else {
-      console.log(json);
       return json;
     }
   }
@@ -181,6 +179,7 @@ export class Commands {
 
     function extractProperty(property) {
       if (json == undefined) {
+        console.log(json);
         setTimeout(extractProperty, 5, property);
       } else {
         return json[property];

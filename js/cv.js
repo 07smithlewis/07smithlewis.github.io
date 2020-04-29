@@ -94,11 +94,8 @@ export class CvRead {
       case "home":
         function typingPause() {
           if (userInterfaceObject.typing == 0 && cv !== undefined) {
-            console.log(1);
             userInterfaceObject.clearScreen();
-            console.log(2);
             userInterfaceObject.updateConsoleHistory(cv['title']);
-            console.log(3);
             var i;
             for (i = 0; i < cv['headings'].length; i++) {
               userInterfaceObject.updateConsoleHistory(

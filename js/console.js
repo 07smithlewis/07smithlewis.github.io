@@ -177,7 +177,7 @@ export class Commands {
     var json = jsonLoader(consoleJSON)
     function whenDefined(commandsObject) {
       if (json == undefined) {
-        setTimeout(returnJson, 5);
+        setTimeout(whenDefined, 5);
       } else {
         commandsObject.consoleStart = json['welcome wagon']
         commandsObject.consoleResponses = json['commands']

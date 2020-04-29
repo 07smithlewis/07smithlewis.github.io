@@ -14,6 +14,7 @@ function jsonLoader(file) {
       console.log(json);
       setTimeout(returnJson, 5);
     } else {
+      console.log(json);
       return json;
     }
   }
@@ -176,6 +177,7 @@ export class UserInterface {
 export class Commands {
   constructor(consoleJSON) {
     var json = undefined;
+    console.log(jsonLoader(consoleJSON));
     json = jsonLoader(consoleJSON)
     function whenDefined(commandsObject) {
       if (json == undefined) {

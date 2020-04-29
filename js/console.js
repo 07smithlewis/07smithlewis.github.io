@@ -1,12 +1,4 @@
-function returnJson(json) {
-  if (json == undefined) {
-    setTimeout(returnJson, 5, json);
-  } else {
-    return json;
-  }
-}
-
-function jsonLoader(file) {
+function jsonLoader(file, callback) {
   var json = undefined;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -17,7 +9,14 @@ function jsonLoader(file) {
   xmlhttp.open("GET", file, true);
   xmlhttp.send();
 
-  return returnJson(json);
+  function returnJson() {
+    if (json == undefined) {
+      setTimeout(returnJson, 5);
+    } else {
+      callback(json);
+    }
+  }
+  returnJson();
 }
 
 export class UserInterface {
@@ -176,8 +175,11 @@ export class UserInterface {
 export class Commands {
   constructor(consoleJSON) {
     var json = undefined;
-    var json = jsonLoader(consoleJSON);
-    console.log(jsonLoader(consoleJSON));
+    function jsonLoaded(jsonDump) {
+      json = jsonDump;
+    }
+    jsonLoader(consoleJSON, jsonLoaded);
+    
     setInterval(function() {console.log(json)}, 100);
 
     function extractProperty(property) {

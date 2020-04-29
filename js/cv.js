@@ -47,15 +47,15 @@ export class CvRead {
     this.commands.read = this.readOld;
   }
 
-  subsection(number) {
-    this.userInterface.clearScreen();
-    this.userInterface.consoleHistory = this.cv['title'];
-    this.userInterface.updateConsoleHistory(
-      this.cv['headings'][number] + "\n\n" + this.cv['content+'][number]
-    );
-  }
-
   read(command) {
+    function subsection(number) {
+      this.userInterface.clearScreen();
+      this.userInterface.consoleHistory = this.cv['title'];
+      this.userInterface.updateConsoleHistory(
+        this.cv['headings'][number] + "\n\n" + this.cv['content+'][number]
+      );
+    }
+
     var commandSplit = command.toLowerCase().split(/[ ]+/);
     switch (commandSplit[0]) {
       case "c":

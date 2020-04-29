@@ -176,20 +176,19 @@ export class UserInterface {
 
 export class Commands {
   constructor(consoleJSON) {
-    this.json = undefined;
-    console.log(jsonLoader(consoleJSON));
-    this.json = jsonLoader(consoleJSON);
-    function whenDefined(commandsObject) {
-      if (commandsObject.json == undefined) {
-        console.log(commandsObject.json);
-        setTimeout(whenDefined, 5);
+    var json = undefined;
+    var json = jsonLoader(consoleJSON);
+
+    function extractProperty(property) {
+      if (json == undefined) {
+        setTimeout(whenDefined, 5, property);
       } else {
-        commandsObject.consoleStart = json['welcome wagon']
-        commandsObject.consoleResponses = json['commands']
-        console.log(commandsObject.consoleStart);
+        return json[property];
       }
     }
-    whenDefined(this);
+
+    commandsObject.consoleStart = extractProperty('welcome wagon');
+    commandsObject.consoleResponses = extractProperty('commands');
   }
 
   read(command) {

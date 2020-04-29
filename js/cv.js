@@ -29,7 +29,7 @@ export class CvRead {
     function jsonLoaded(jsonDump) {
       cvDump = jsonDump;
     }
-    jsonLoader('../data/cv.JSON', jsonLoaded)c
+    jsonLoader('../data/cv.JSON', jsonLoaded);
     this.cv = cvDump;
 
     function typingPause() {

@@ -1,4 +1,4 @@
-export function jsonLoader(file) {
+function jsonLoader(file) {
   var json = undefined;
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {

@@ -181,6 +181,7 @@ export class Commands {
     json = jsonLoader(consoleJSON)
     function whenDefined(commandsObject) {
       if (json == undefined) {
+        console.log(json);
         setTimeout(whenDefined, 5);
       } else {
         commandsObject.consoleStart = json['welcome wagon']

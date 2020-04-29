@@ -175,21 +175,23 @@ export class UserInterface {
 export class Commands {
   constructor(consoleJSON) {
     var json = undefined;
-    function jsonLoaded(jsonDump, commandsObject) {
+    function jsonLoaded(jsonDump) {
       json = jsonDump;
     }
-    jsonLoader(consoleJSON, jsonLoaded, commmandsObject);
+    jsonLoader(consoleJSON, jsonLoaded);
 
-    function extractProperty(property) {
+    dataReady(commandsObject) {
+      commandsObject.consoleStart = extractProperty('welcome wagon');
+      commandsObject.consoleResponses = extractProperty('commands');
+    }
+    function extractProperties(callback, commandsObject) {
       if (json == undefined) {
-        setTimeout(return extractProperty(property), 5);
+        setTimeout(extractProperty, 5, callback, commandsObject);
       } else {
-        return json[property];
+        callback(commandsObject);
       }
     }
-
-    this.consoleStart = extractProperty('welcome wagon');
-    this.consoleResponses = extractProperty('commands');
+    extractProperties(dataReady, this);
   }
 
   read(command) {

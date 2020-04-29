@@ -75,21 +75,27 @@ export class CvRead {
     switch (commandSplit[0]) {
       case "c":
         subsection(0);
+        return "";
         break;
       case "e":
         subsection(1);
+        return "";
         break;
       case "h":
         subsection(2);
+        return "";
         break;
       case "s":
         subsection(3);
+        return "";
         break;
       case "o":
         subsection(4);
+        return "";
         break;
       case "exit":
         this.userInterface.commands = this.userInterface.commandsDefault;
+        return "";
         break;
       case "home":
         function typingPause() {
@@ -107,6 +113,7 @@ export class CvRead {
           }
         }
         typingPause();
+        return "";
         break;
       default:
         return this.commands.consoleResponses['default'];

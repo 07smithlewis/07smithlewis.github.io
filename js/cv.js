@@ -59,19 +59,19 @@ export class CvRead {
     var commandSplit = command.toLowerCase().split(/[ ]+/);
     switch (commandSplit[0]) {
       case "c":
-        this.subsection(0);
+        subsection(0);
         break;
       case "e":
-        this.subsection(1);
+        subsection(1);
         break;
       case "h":
-        this.subsection(2);
+        subsection(2);
         break;
       case "s":
-        this.subsection(3);
+        subsection(3);
         break;
       case "o":
-        this.subsection(4);
+        subsection(4);
         break;
       case "exit":
         this.resetRead();

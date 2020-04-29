@@ -55,8 +55,8 @@ export class UserInterface {
     function checkQue(outputObject) {
       if (outputObject.typing == 0 && outputObject.typingQue[1]+1 == typingQueNumber) {
         outputObject.typing = 1;
-        this.consoleHistory = '';
-        this.drawScreen();
+        outputObject.consoleHistory = '';
+        outputObject.drawScreen();
         setTimeout(typingComplete, outputObject.newlineDelay, outputObject)
       } else {
         setTimeout(checkQue, outputObject.typeSpeed, outputObject);

@@ -47,7 +47,7 @@ export class CvRead {
     this.commands.read = this.readOld;
   }
 
-  subsection(number){
+  subsection(number) {
     this.userInterface.clearScreen();
     this.userInterface.consoleHistory = this.cv['title'];
     this.userInterface.updateConsoleHistory(

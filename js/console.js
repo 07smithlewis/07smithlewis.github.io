@@ -174,13 +174,16 @@ export class UserInterface {
 
 export class Commands {
   constructor(consoleJSON) {
-    var json = jsonLoader(consoleJSON)
+    var json = undefined;
+    json = jsonLoader(consoleJSON)
     function whenDefined(commandsObject) {
       if (json == undefined) {
+        console.log(json);
         setTimeout(whenDefined, 5);
       } else {
         commandsObject.consoleStart = json['welcome wagon']
         commandsObject.consoleResponses = json['commands']
+        console.log(commandsObject.consoleStart);
       }
     }
     whenDefined(this);

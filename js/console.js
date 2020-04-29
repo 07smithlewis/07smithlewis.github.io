@@ -9,6 +9,7 @@ export class UserInterface {
     this.consoleStateDisplayed = '';
     this.consoleHistoryDisplayed = '';
     this.typing = 0;
+    this.typingQue = [0, 0];
     this.cursorToggled = 0;
     this.fontSize = 14;
     this.typeSpeed = 5;
@@ -47,11 +48,18 @@ export class UserInterface {
   }
 
   updateConsoleHistory(text) {
+    var typingQueNumber = this.typingQue[0] + 1;
+    this.typingQue[0] += 1;
+
     function typingComplete(outputObject) {
       outputObject.typing = 0;
+      outputObject.typingQue[1] += 1;
+      if (outputObject.typingQue[0] == outputObject.typingQue[1]) {
+        outputObject.typingQue = [0, 0];
+      }
     }
-    function checkIfTyping(outputObject) {
-      if (outputObject.typing === 0) {
+    function checkQue(outputObject) {
+      if (outputObject.typing == 0 && outputObject.typingQue[1]+1 == typingQueNumber) {
         outputObject.typing = 1;
 
         outputObject.consoleHistory += '\n\n';
@@ -73,7 +81,7 @@ export class UserInterface {
         setTimeout(checkIfTyping, outputObject.typeSpeed, outputObject);
       }
     }
-    checkIfTyping(this);
+    checkQue(this);
   }
 
   initialize() {

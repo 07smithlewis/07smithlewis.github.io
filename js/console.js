@@ -181,8 +181,8 @@ export class Commands {
     jsonLoader(consoleJSON, jsonLoaded);
 
     dataReady(commandsObject) {
-      commandsObject.consoleStart = extractProperty('welcome wagon');
-      commandsObject.consoleResponses = extractProperty('commands');
+      commandsObject.consoleStart = json['welcome wagon'];
+      commandsObject.consoleResponses = json['commands'];
     }
     function extractProperties(callback, commandsObject) {
       if (json == undefined) {

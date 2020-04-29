@@ -64,11 +64,13 @@ export class CvRead {
   }
 
   read(command, userInterfaceObject) {
+    var cv = this.cv;
+
     function subsection(number) {
       userInterfaceObject.clearScreen();
-      userInterfaceObject.consoleHistory = this.cv['title'];
+      userInterfaceObject.consoleHistory = cv['title'];
       userInterfaceObject.updateConsoleHistory(
-        this.cv['headings'][number] + "\n\n" + this.cv['content+'][number]
+        cv['headings'][number] + "\n\n" + cv['content+'][number]
       );
     }
 
@@ -94,14 +96,14 @@ export class CvRead {
         break;
       case "home":
         function typingPause() {
-          if (userInterfaceObject.typing == 0 && this.cv !== undefined) {
+          if (userInterfaceObject.typing == 0 && cv !== undefined) {
 
             userInterfaceObject.clearScreen();
-            userInterfaceObject.updateConsoleHistory(this.cv['title']);
+            userInterfaceObject.updateConsoleHistory(cv['title']);
             var i;
-            for (i = 0; i < this.cv['headings'].length; i++) {
+            for (i = 0; i < cv['headings'].length; i++) {
               userInterfaceObject.updateConsoleHistory(
-                this.cv['headings'][i] + "\n\n" + this.cv['content'][i]
+                cv['headings'][i] + "\n\n" + cv['content'][i]
               );
             }
           } else {

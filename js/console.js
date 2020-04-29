@@ -1,3 +1,11 @@
+function returnJson(json) {
+  if (json == undefined) {
+    setTimeout(returnJson, 5, json);
+  } else {
+    return json;
+  }
+}
+
 function jsonLoader(file) {
   var json = undefined;
   var xmlhttp = new XMLHttpRequest();
@@ -9,14 +17,7 @@ function jsonLoader(file) {
   xmlhttp.open("GET", file, true);
   xmlhttp.send();
 
-  function returnJson() {
-    if (json == undefined) {
-      setTimeout(returnJson, 5);
-    } else {
-      return json;
-    }
-  }
-  return returnJson();
+  return returnJson(json);
 }
 
 export class UserInterface {

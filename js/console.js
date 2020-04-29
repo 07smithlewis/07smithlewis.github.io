@@ -183,6 +183,8 @@ export class UserInterface {
       this.drawScreen();
     });
 
+    document.getElementById('main').focus();
+
     function consoleMessage(uiObject) {
       if (uiObject.commands.consoleStart == undefined) {
         setTimeout(consoleMessage, 5, uiObject);

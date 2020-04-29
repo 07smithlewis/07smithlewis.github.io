@@ -16,7 +16,7 @@ function jsonLoader(file) {
       return json;
     }
   }
-  returnJson();
+  return returnJson();
 }
 
 export class UserInterface {

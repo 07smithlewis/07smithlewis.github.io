@@ -5,7 +5,7 @@ var commands = new Commands("../data/console.JSON");
 var userInterface = new UserInterface(commands, 'input', 'output', 'main');
 userInterface.initialize();
 
-commands.read = function read(command) {
+commands.read = function read(command, userInterfaceObject) {
 
   var commandSplit = command.toLowerCase().split(/[ ]+/);
   switch (commandSplit[0]) {

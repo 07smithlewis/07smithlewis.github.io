@@ -138,7 +138,7 @@ export class UserInterface {
       switch (event.keyCode) {
         case 13:
           this.updateConsoleHistory("'" + this.consoleState + "'");
-          this.updateConsoleHistory(this.commands.read(this.consoleState));
+          this.updateConsoleHistory(this.commands.read(this.consoleState, this));
           this.consoleState = '';
           break;
         default:
@@ -194,7 +194,7 @@ export class Commands {
     extractProperties(dataReady, this);
   }
 
-  read(command) {
+  read(command, userInterfaceObject) {
     var commandSplit = command.toLowerCase().split(/[ ]+/);
     switch (commandSplit[0]) {
       default:

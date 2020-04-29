@@ -90,12 +90,15 @@ export class UserInterface {
   updateConsoleHistory(text) {
     var typingQueNumber = this.typingQue[0] + 1;
     this.typingQue[0] += 1;
+    console.log(this.typingQue);
 
     function typingComplete(outputObject) {
       outputObject.typing = 0;
       outputObject.typingQue[1] += 1;
+      console.log(outputObject.typingQue);
       if (outputObject.typingQue[0] == outputObject.typingQue[1]) {
         outputObject.typingQue = [0, 0];
+        console.log(outputObject.typingQue);
       }
     }
     function checkQue(outputObject) {

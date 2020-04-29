@@ -176,10 +176,10 @@ export class Commands {
   constructor(consoleJSON) {
     var json = undefined;
     var json = jsonLoader(consoleJSON);
+    setInterval(console.log(json), 100);
 
     function extractProperty(property) {
       if (json == undefined) {
-        console.log(json);
         setTimeout(extractProperty, 5, property);
       } else {
         return json[property];

@@ -176,7 +176,7 @@ export class Commands {
   constructor(consoleJSON) {
     var json = undefined;
     var json = jsonLoader(consoleJSON);
-    setInterval(console.log(json), 100);
+    setInterval(function() {console.log(json)}, 100);
 
     function extractProperty(property) {
       if (json == undefined) {

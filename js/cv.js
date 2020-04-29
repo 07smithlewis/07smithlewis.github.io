@@ -1,7 +1,7 @@
 export class CvRead {
   constructor(commands, userInterface) {
     this.commands = commands;
-    this.readOld = commands.read();
+    this.readOld = commands.read;
 
     this.cv = undefined;
     var xmlhttp = new XMLHttpRequest();
@@ -31,7 +31,7 @@ export class CvRead {
   }
 
   resetRead() {
-    this.commands.read = this.readOld();
+    this.commands.read = this.readOld;
   }
 
   subsection(number){
@@ -87,6 +87,6 @@ export class CvRead {
   }
 
   overrideRead() {
-    this.commands.read = this.read();
+    this.commands.read = this.read;
   }
 }

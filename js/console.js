@@ -186,7 +186,7 @@ export class Commands {
     }
     function extractProperties(callback, commandsObject) {
       if (json == undefined) {
-        setTimeout(extractProperty, 5, callback, commandsObject);
+        setTimeout(extractProperties, 5, callback, commandsObject);
       } else {
         callback(commandsObject);
       }

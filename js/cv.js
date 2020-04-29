@@ -4,33 +4,43 @@ export class CvRead {
     this.commands = commands;
     this.readOld = commands.read;
 
+    var cvDump = undefined;
     this.cv = undefined;
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        this.cv = JSON.parse(this.responseText);
-        console.log(this.cv);
+        cvDump = JSON.parse(this.responseText);
+        console.log(cvDump);
       }
     };
     xmlhttp.open("GET", "../data/cv.JSON", true);
     xmlhttp.send();
+    function setCv(cvReadObject) {
+      if (cvDump == undefined) {
+        setTimeout(setCv, 5, cvReadObject);
+      } else {
+        cvReadObject.cv = cvDump;
+      }
+    }
+    setCv(this);
+
     console.log('stamp1');
-    function typingPause(cvRead) {
-      if (userInterface.typing == 0 && cvRead.cv !== undefined) {
+    function typingPause() {
+      if (userInterface.typing == 0 && cvDump !== undefined) {
         console.log('stamp2');
         userInterface.clearScreen();
-        userInterface.updateConsoleHistory(cvRead.cv['title']);
+        userInterface.updateConsoleHistory(cvDump['title']);
         var i;
-        for (i = 0; i < cvRead.cv['headings'].length; i++) {
+        for (i = 0; i < cvDump['headings'].length; i++) {
           userInterface.updateConsoleHistory(
-            cvRead.cv['headings'][i] + "\n\n" + cvRead.cv['content'][i]
+            cvDump['headings'][i] + "\n\n" + cvDump['content'][i]
           );
         }
       } else {
         setTimeout(typingPause, userInterface.typeSpeed);
       }
     }
-    typingPause(this);
+    typingPause();
   }
 
   resetRead() {

@@ -180,7 +180,7 @@ export class Commands {
     }
     jsonLoader(consoleJSON, jsonLoaded);
 
-    dataReady(commandsObject) {
+    function dataReady(commandsObject) {
       commandsObject.consoleStart = json['welcome wagon'];
       commandsObject.consoleResponses = json['commands'];
     }

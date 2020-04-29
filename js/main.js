@@ -23,9 +23,6 @@ commands.read = function read(command) {
           case 'link':
             return commands.consoleResponses['link']['help'];
             break;
-          case 'msg':
-            return commands.consoleResponses['msg']['help'];
-            break;
           default:
             return commands.consoleResponses['help']['default'];
         }
@@ -69,9 +66,6 @@ commands.read = function read(command) {
     case 'link':
       window.location.assign(commands.consoleResponses['link']['hyperlink']);
       return commands.consoleResponses['link']['response'];
-      break;
-    case 'msg':
-      return commands.consoleResponses['msg']['response'];
       break;
     default:
       return commands.consoleResponses['default'];

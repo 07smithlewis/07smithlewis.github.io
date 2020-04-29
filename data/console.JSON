@@ -20,10 +20,6 @@
       "hyperlink": "https://www.linkedin.com/in/smithle/",
       "help": "Redirect to my LinkedIn profile"
     },
-    "msg": {
-      "response": "",
-      "help": "PLACEHOLDER"
-    },
     "default": "Invalid input"
   }
 }

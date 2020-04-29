@@ -35,7 +35,6 @@ export class CvRead {
     }
     function saveToObject(callback, cvReadObject) {
       if (json == undefined) {
-        console.log(json);
         setTimeout(saveToObject, 5, callback, cvReadObject);
       } else {
         callback(cvReadObject);
@@ -43,21 +42,21 @@ export class CvRead {
     }
     saveToObject(dataReady, this);
 
-    function typingPause() {
-      if (userInterface.typing == 0 && this.cv !== undefined) {
+    function typingPause(cvReadObject) {
+      if (userInterface.typing == 0 && cvReadObject.cv !== undefined) {
         userInterface.clearScreen();
-        userInterface.updateConsoleHistory(this.cv['title']);
+        userInterface.updateConsoleHistory(cvReadObject.cv['title']);
         var i;
-        for (i = 0; i < this.cv['headings'].length; i++) {
+        for (i = 0; i < cvReadObject.cv['headings'].length; i++) {
           userInterface.updateConsoleHistory(
-            this.cv['headings'][i] + "\n\n" + this.cv['content'][i]
+            cvReadObject.cv['headings'][i] + "\n\n" + cvReadObject.cv['content'][i]
           );
         }
       } else {
-        setTimeout(typingPause, userInterface.typeSpeed);
+        setTimeout(typingPause, userInterface.typeSpeed, cvReadObject);
       }
     }
-    typingPause();
+    typingPause(cvReadObject);
   }
 
   resetRead() {

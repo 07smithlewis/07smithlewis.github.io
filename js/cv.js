@@ -1,5 +1,6 @@
 export class CvRead {
   constructor(commands, userInterface) {
+    this.userInterface = userInterface;
     this.commands = commands;
     this.readOld = commands.read;
 
@@ -35,9 +36,9 @@ export class CvRead {
   }
 
   subsection(number){
-    userInterface.clearScreen();
-    userInterface.consoleHistory = this.cv['title'];
-    userInterface.updateConsoleHistory(
+    this.userInterface.clearScreen();
+    this.userInterface.consoleHistory = this.cv['title'];
+    this.userInterface.updateConsoleHistory(
       this.cv['headings'][number] + "\n\n" + this.cv['content+'][number]
     );
   }
@@ -65,24 +66,24 @@ export class CvRead {
         break;
       case "home":
         function typingPause() {
-          if (userInterface.typing == 0 && this.cv !== undefined) {
+          if (this.userInterface.typing == 0 && this.cv !== undefined) {
 
-            userInterface.clearScreen();
-            userInterface.updateConsoleHistory(this.cv['title']);
+            this.userInterface.clearScreen();
+            this.userInterface.updateConsoleHistory(this.cv['title']);
             var i;
             for (i = 0; i < this.cv['headings'].length; i++) {
-              userInterface.updateConsoleHistory(
+              this.userInterface.updateConsoleHistory(
                 this.cv['headings'][i] + "\n\n" + this.cv['content'][i]
               );
             }
           } else {
-            setTimeout(typingPause, userInterface.typeSpeed);
+            setTimeout(typingPause, this.userInterface.typeSpeed);
           }
         }
         typingPause();
         break;
       default:
-        return commands.consoleResponses['default'];
+        return this.commands.consoleResponses['default'];
     }
   }
 

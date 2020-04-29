@@ -178,7 +178,8 @@ export class Commands {
   }
 
   read(command) {
-    switch (command.toLowerCase().split(" ")[0]) {
+    var commandSplit = command.toLowerCase().split(/[ ]+/);
+    switch (commandSplit[0]) {
       default:
         return this.consoleResponses['default'];
     }

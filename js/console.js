@@ -174,8 +174,16 @@ export class UserInterface {
 
 export class Commands {
   constructor(consoleJSON) {
-    this.consoleStart = jsonLoader(consoleJSON)['welcome wagon'];
-    this.consoleResponses = jsonLoader(consoleJSON)['commands'];
+    json = jsonLoader(consoleJSON)
+    function whenDefined(commandsObject) {
+      if (json == undefined) {
+        setTimeout(returnJson, 5);
+      } else {
+        commandsObject.consoleStart = json['welcome wagon']
+        commandsObject.consoleResponses = json['commands']
+      }
+    }
+    whenDefined(this);
   }
 
   read(command) {

@@ -9,13 +9,15 @@ export class CvRead {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         this.cv = JSON.parse(this.responseText);
+        console.log(this.cv);
       }
     };
     xmlhttp.open("GET", "../data/cv.JSON", true);
     xmlhttp.send();
+    console.log('stamp1');
     function typingPause() {
       if (userInterface.typing == 0 && this.cv !== undefined) {
-
+        console.log('stamp2');
         userInterface.clearScreen();
         userInterface.updateConsoleHistory(this.cv['title']);
         var i;

@@ -15,22 +15,22 @@ export class CvRead {
     xmlhttp.open("GET", "../data/cv.JSON", true);
     xmlhttp.send();
     console.log('stamp1');
-    function typingPause() {
-      if (userInterface.typing == 0 && this.cv !== undefined) {
+    function typingPause(cvRead) {
+      if (userInterface.typing == 0 && cvRead.cv !== undefined) {
         console.log('stamp2');
         userInterface.clearScreen();
-        userInterface.updateConsoleHistory(this.cv['title']);
+        userInterface.updateConsoleHistory(cvRead.cv['title']);
         var i;
-        for (i = 0; i < this.cv['headings'].length; i++) {
+        for (i = 0; i < cvRead.cv['headings'].length; i++) {
           userInterface.updateConsoleHistory(
-            this.cv['headings'][i] + "\n\n" + this.cv['content'][i]
+            cvRead.cv['headings'][i] + "\n\n" + cvRead.cv['content'][i]
           );
         }
       } else {
         setTimeout(typingPause, userInterface.typeSpeed);
       }
     }
-    typingPause();
+    typingPause(this);
   }
 
   resetRead() {

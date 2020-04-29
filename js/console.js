@@ -26,7 +26,6 @@ export class UserInterface {
       var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
-    window.scrollTo(0, 0);
   }
 
   clearScreen() {

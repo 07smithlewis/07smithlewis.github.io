@@ -32,7 +32,7 @@ commands.read = function read(command) {
       }
       break;
     case 'cv':
-      cvRead = new CvRead(commands, userInterface);
+      var cvRead = new CvRead(commands, userInterface);
       cvRead.overrideRead();
       return commands.consoleResponses['cv']['response'];
       break;

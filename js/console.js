@@ -185,6 +185,7 @@ export class Commands {
       } else {
         commandsObject.consoleStart = json['welcome wagon']
         commandsObject.consoleResponses = json['commands']
+        console.log(commandsObject.consoleStart);
       }
     }
     whenDefined(this);

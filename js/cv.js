@@ -1,27 +1,13 @@
+import {jsonLoader} from 'jsonLoader.js';
+
 export class CvRead {
   constructor(commands, userInterface) {
     this.userInterface = userInterface;
     this.commands = commands;
     this.readOld = commands.read;
 
-    var cvDump = undefined;
-    this.cv = undefined;
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        cvDump = JSON.parse(this.responseText);
-      }
-    };
-    xmlhttp.open("GET", "../data/cv.JSON", true);
-    xmlhttp.send();
-    function setCv(cvReadObject) {
-      if (cvDump == undefined) {
-        setTimeout(setCv, 5, cvReadObject);
-      } else {
-        cvReadObject.cv = cvDump;
-      }
-    }
-    setCv(this);
+    var cvDump = jsonLoader('../data/cv.JSON');
+    this.cv = cvDump;
 
     function typingPause() {
       if (userInterface.typing == 0 && cvDump !== undefined) {

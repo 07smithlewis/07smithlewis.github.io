@@ -1,3 +1,5 @@
+import {jsonLoader} from 'jsonLoader.js';
+
 export class UserInterface {
   constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, divId) {
     this.commands = commandsObject;
@@ -153,28 +155,8 @@ export class UserInterface {
 
 export class Commands {
   constructor(consoleJSON) {
-    this.consoleStart = undefined;
-    this.consoleResponses = undefined;
-    var commandsDataDump = undefined;
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        commandsDataDump = JSON.parse(this.responseText);
-      }
-    };
-    xmlhttp.open("GET", consoleJSON, true);
-    xmlhttp.send();
-
-    function setCommandsData(commandsObject) {
-      if (commandsDataDump == undefined) {
-        setTimeout(setCommandsData, 5, commandsObject);
-      } else {
-        commandsObject.consoleStart = commandsDataDump['welcome wagon'];
-        commandsObject.consoleResponses = commandsDataDump['commands']
-      }
-    }
-    setCommandsData(this);
+    this.consoleStart = jsonLoader(consoleJSON)['welcome wagon'];
+    this.consoleResponses = jsonLoader(consoleJSON)['commands'];
   }
 
   read(command) {

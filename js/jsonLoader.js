@@ -11,7 +11,7 @@ function jsonLoader(file) {
 
   function returnJson() {
     if (json == undefined) {
-      setTimeout(setCv, 5);
+      setTimeout(returnJson, 5);
     } else {
       return json;
     }

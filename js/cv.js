@@ -95,8 +95,8 @@ export class CvRead {
         break;
       case "exit":
         userInterfaceObject.clearScreen();
-        userInterfaceObject.updateConsoleHistory(userInterfaceObject.commands.consoleStart);
         this.userInterface.commands = this.userInterface.commandsDefault;
+        userInterfaceObject.updateConsoleHistory(userInterfaceObject.commands.consoleStart);
         return "";
         break;
       case "home":

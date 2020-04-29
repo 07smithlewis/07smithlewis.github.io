@@ -1,4 +1,4 @@
-import {jsonLoader} from 'jsonLoader.js';
+import {jsonLoader} from './jsonLoader.js';
 
 export class UserInterface {
   constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, divId) {

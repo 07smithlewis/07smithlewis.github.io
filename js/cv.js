@@ -1,4 +1,4 @@
-import {jsonLoader} from 'jsonLoader.js';
+import {jsonLoader} from './jsonLoader.js';
 
 export class CvRead {
   constructor(commands, userInterface) {

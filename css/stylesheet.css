@@ -13,6 +13,7 @@ pre {
  white-space: -o-pre-wrap;
  word-wrap: break-word;
  display: inline;
+ overflow-y: scroll;
 }
 
 .left {
@@ -39,7 +40,6 @@ pre {
   word-wrap: break-word;
   position: fixed;
   bottom: 5px;
-  overflow: scroll;
 }
 
 @media screen and (max-width:800px) {

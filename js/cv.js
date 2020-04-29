@@ -10,7 +10,6 @@ export class CvRead {
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         cvDump = JSON.parse(this.responseText);
-        console.log(cvDump);
       }
     };
     xmlhttp.open("GET", "../data/cv.JSON", true);
@@ -24,10 +23,8 @@ export class CvRead {
     }
     setCv(this);
 
-    console.log('stamp1');
     function typingPause() {
       if (userInterface.typing == 0 && cvDump !== undefined) {
-        console.log('stamp2');
         userInterface.clearScreen();
         userInterface.updateConsoleHistory(cvDump['title']);
         var i;
@@ -49,9 +46,9 @@ export class CvRead {
 
   read(command) {
     function subsection(number) {
-      this.userInterface.clearScreen();
-      this.userInterface.consoleHistory = this.cv['title'];
-      this.userInterface.updateConsoleHistory(
+      userInterface.clearScreen();
+      userInterface.consoleHistory = this.cv['title'];
+      userInterface.updateConsoleHistory(
         this.cv['headings'][number] + "\n\n" + this.cv['content+'][number]
       );
     }

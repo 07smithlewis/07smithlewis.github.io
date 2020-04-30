@@ -169,6 +169,14 @@ export class UserInterface {
     }
     setInterval(toggleCursor, 500, this);
 
+    function updateFontSize(outputObject) {
+      fontMaxSize = Math.floor(window.innerWidth / 58.);
+      if (document.getElementById(outputObject.divId).style.fontSize > fontMaxSize) {
+        document.getElementById(outputObject.divId).style.fontSize = fontMaxSize;
+      }
+    }
+    setInterval(updateFontSize, 100, this);
+
     document.addEventListener("keypress", event => {
       switch (event.keyCode) {
         case 13:
@@ -203,12 +211,6 @@ export class UserInterface {
       }
     }
     consoleMessage(this);
-  }
-
-  getPageWidth() {
-    var innerWidth = window.innerWidth;
-    var charNumber = Math.round(innerWidth / this.fontSize);
-    return charNumber;
   }
 }
 

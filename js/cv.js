@@ -139,7 +139,7 @@ export class CvRead {
             userInterfaceObject.updateConsoleHistoryInstant(cv['title']);
             var i;
             for (i = 0; i < cv['headings'].length; i++) {
-              userInterfaceObject.updateConsoleHistory(
+              userInterfaceObject.updateConsoleHistoryInstant(
                 cv['headings'][i] + "\n\n" + cv['content'][i]
               );
             }

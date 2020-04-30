@@ -66,7 +66,7 @@ export class UserInterface {
   clearScreen(updateScreen) {
     var typingQueNumber = this.typingQue[0] + 1;
     this.typingQue[0] += 1;
-    console.log(outputObject.typingQue);
+    console.log(this.typingQue);
     function typingComplete(outputObject) {
       outputObject.typing = 0;
       outputObject.typingQue[1] += 1;
@@ -134,7 +134,7 @@ export class UserInterface {
   updateConsoleHistoryInstant(text) {
     var typingQueNumber = this.typingQue[0] + 1;
     this.typingQue[0] += 1;
-    console.log(outputObject.typingQue);
+    console.log(this.typingQue);
     function typingComplete(outputObject) {
       outputObject.typing = 0;
       outputObject.typingQue[1] += 1;

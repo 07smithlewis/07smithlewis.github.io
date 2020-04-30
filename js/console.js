@@ -167,21 +167,9 @@ export class UserInterface {
         outputObject.cursorToggled = 0;
       }
       outputObject.drawScreen();
+      console.log(window.innerWidth);
     }
     setInterval(toggleCursor, 500, this);
-
-    function updateFontSize(outputObject) {
-      var div = document.getElementById(outputObject.divId);
-      var fontMaxSize = undefined;
-      if (window.innerWidth > 800) {
-        fontMaxSize = Math.floor(window.innerWidth * 0.8 / 58. / outputObject.charWidthMultiplier);
-      } else {
-        var fontMaxSize = Math.floor(window.innerWidth / 58. / outputObject.charWidthMultiplier);
-      }
-      var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
-      div.style.fontSize = fontSize.toString() + 'px';
-    }
-    //setInterval(updateFontSize, 100, this);
 
     document.addEventListener("keypress", event => {
       switch (event.keyCode) {

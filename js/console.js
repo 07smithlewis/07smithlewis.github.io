@@ -26,7 +26,6 @@ export class UserInterface {
     this.divId = divId;
     this.htmlElementIdInput = htmlElementIdInput;
     this.htmlElementIdOutput = htmlElementIdOutput;
-    this.mobileOverlayId = mobileOverlayId;
     this.consoleHistory = '';
     this.consoleHistoryDisplayed = '';
     this.typing = 0;

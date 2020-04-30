@@ -45,7 +45,7 @@
       "o": "o", "other": "o"
     },
     "help": {
-      "response": "To get more details on a subsection, type the letter to the left of the subsection heading\n\nCommand list:\n&lt;arg>      Expand subsection arg\nBACK      Return to the cv overview\nEXIT      Return to the home page\nHELP      Display command list",
+      "response": "To get more details on a subsection, type the letter to the left of the subsection heading\n\nCommand list:\n&lt;arg>     Expand subsection arg\nBACK      Return to the cv overview\nEXIT      Return to the home page\nHELP      Display command list",
       "help": "Displays help information on all commands.\n\nHELP [command]:\n\n    Displays help information on given command",
       "default": "Command not found"
     },

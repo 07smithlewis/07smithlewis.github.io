@@ -135,7 +135,7 @@ export class CvRead {
       case "back":
         function typingPause() {
           if (cv !== undefined) {
-            userInterfaceObject.clearScreen();
+            userInterfaceObject.clearScreen(False);
             userInterfaceObject.updateConsoleHistoryInstant(cv['title']);
             var i;
             for (i = 0; i < cv['headings'].length; i++) {

@@ -63,7 +63,7 @@ export class UserInterface {
     this.consoleStateDisplayed = this.consoleState;
   }
 
-  clearScreen() {
+  clearScreen(updateScreen) {
     var typingQueNumber = this.typingQue[0] + 1;
     this.typingQue[0] += 1;
 
@@ -78,7 +78,9 @@ export class UserInterface {
       if (outputObject.typing == 0 && outputObject.typingQue[1]+1 == typingQueNumber) {
         outputObject.typing = 1;
         outputObject.consoleHistory = '';
-        outputObject.drawScreen();
+        if (updateScreen !== False) {
+          outputObject.drawScreen();
+        }
         setTimeout(typingComplete, outputObject.newlineDelay, outputObject)
       } else {
         setTimeout(checkQue, outputObject.typeSpeed, outputObject);

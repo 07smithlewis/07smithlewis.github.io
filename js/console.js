@@ -20,16 +20,14 @@ function jsonLoader(file, callback) {
 }
 
 export class UserInterface {
-  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, mobileOverlayId, divId) {
+  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, divId) {
     this.commands = commandsObject;
     this.commandsDefault = commandsObject;
     this.divId = divId;
     this.htmlElementIdInput = htmlElementIdInput;
     this.htmlElementIdOutput = htmlElementIdOutput;
     this.mobileOverlayId = mobileOverlayId;
-    this.consoleState = '';
     this.consoleHistory = '';
-    this.consoleStateDisplayed = '';
     this.consoleHistoryDisplayed = '';
     this.typing = 0;
     this.typingQue = [0, 0];
@@ -46,23 +44,15 @@ export class UserInterface {
   }
 
   drawScreen() {
-    var screenFormatInput = '<pre>> ' + this.consoleState;
-    if (this.cursorToggled === 1) {
-      screenFormatInput += '_';
-    }
-    screenFormatInput += '</pre>';
-    document.getElementById(this.htmlElementIdInput).innerHTML = screenFormatInput;
-
     if (this.consoleHistory !== this.consoleHistoryDisplayed) {
       var screenFormatOutput = '<pre>' + this.consoleHistory + '</pre>';
       document.getElementById(this.htmlElementIdOutput).innerHTML = screenFormatOutput;
     }
 
-    if (this.consoleHistory !== this.consoleHistoryDisplayed || this.consoleStateDisplayed !== this.consoleState) {
+    if (this.consoleHistory !== this.consoleHistoryDisplayed) {
       this.scrollToBottom();
     }
     this.consoleHistoryDisplayed = this.consoleHistory;
-    this.consoleStateDisplayed = this.consoleState;
   }
 
   clearScreen(updateScreen) {
@@ -175,30 +165,18 @@ export class UserInterface {
     document.addEventListener("keypress", event => {
       switch (event.keyCode) {
         case 13:
-          this.updateConsoleHistory("'" + this.consoleState + "'");
-          var text = this.commands.read(this.consoleState, this);
+          var command = document.getElementById(this.mobileOverlayId).innetText.replace(/[\n\r]+/g, '');
+          document.getElementById(this.mobileOverlayId).innetText = '';
+          this.updateConsoleHistory("'" + command + "'");
+          var text = this.commands.read(command, this);
           if (text != '') {
             this.updateConsoleHistory(text);
           }
-          this.consoleState = '';
           break;
         default:
-          this.consoleState += event.key;
-      }
-      this.drawScreen();
-    });
-    document.addEventListener("keydown", event => {
-      switch (event.keyCode) {
-        case 8:
-          this.consoleState = this.consoleState.slice(0, -1);
           break;
       }
       this.drawScreen();
-    });
-
-    document.getElementById(this.mobileOverlayId).addEventListener("input", () => {
-      this.consoleState += document.getElementById(this.mobileOverlayId).innerText.replace(/[\n\r]+/g, '');
-      document.getElementById(this.mobileOverlayId).innerText = '';
     });
 
     document.getElementById('main').focus();

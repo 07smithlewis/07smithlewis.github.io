@@ -2,7 +2,7 @@ import {UserInterface, Commands} from './console.js';
 import {CvRead} from './cv.js';
 
 var commands = new Commands("../data/console.JSON");
-var userInterface = new UserInterface(commands, 'input', 'output', 'overlay', 'main');
+var userInterface = new UserInterface(commands, 'input2', 'output', 'main');
 userInterface.initialize();
 
 commands.read = function read(command, userInterfaceObject) {

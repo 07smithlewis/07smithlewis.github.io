@@ -197,7 +197,9 @@ export class UserInterface {
     });
 
     document.getElementById(this.mobileOverlayId).addEventListener("input", () => {
-      this.consoleState += document.getElementById(this.mobileOverlayId).innerText;
+      if (document.getElementById(this.mobileOverlayId).innerText != '\n') {
+        this.consoleState += document.getElementById(this.mobileOverlayId).innerText;
+      }
       document.getElementById(this.mobileOverlayId).innerText = '';
     });
 

@@ -35,9 +35,10 @@ pre {
   text-size-adjust:none;
 }
 
-.touchscreenTextInput {
-  opacity: 1;
-  position:relative;
-  top: 0px;
-  z-index : 2;
+.input1 {
+  width: calc(min(16pt, 2.7vw) * 9/16 * 2)
+}
+
+.input2 {
+  left:calc(5% + min(16pt, 2.7vw) * 9/16 * 2);
 }

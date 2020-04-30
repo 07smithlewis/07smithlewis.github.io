@@ -20,12 +20,13 @@ function jsonLoader(file, callback) {
 }
 
 export class UserInterface {
-  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, divId) {
+  constructor(commandsObject, htmlElementIdInput, htmlElementIdOutput, mobileOverlayId, divId) {
     this.commands = commandsObject;
     this.commandsDefault = commandsObject;
     this.divId = divId;
     this.htmlElementIdInput = htmlElementIdInput;
     this.htmlElementIdOutput = htmlElementIdOutput;
+    this.mobileOverlayId = mobileOverlayId;
     this.consoleState = '';
     this.consoleHistory = '';
     this.consoleStateDisplayed = '';
@@ -193,6 +194,11 @@ export class UserInterface {
           break;
       }
       this.drawScreen();
+    });
+
+    document.getElementById(this.mobileOverlayId).addEventListener("input", () => {
+      this.consoleState += document.getElementById(this.mobileOverlayId).innerText;
+      document.getElementById(this.mobileOverlayId).innerText = '';
     });
 
     document.getElementById('main').focus();

@@ -78,7 +78,7 @@ export class UserInterface {
       if (outputObject.typing == 0 && outputObject.typingQue[1]+1 == typingQueNumber) {
         outputObject.typing = 1;
         outputObject.consoleHistory = '';
-        if (updateScreen !== False) {
+        if (updateScreen !== false) {
           outputObject.drawScreen();
         }
         setTimeout(typingComplete, outputObject.newlineDelay, outputObject)

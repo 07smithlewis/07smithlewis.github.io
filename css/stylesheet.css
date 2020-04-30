@@ -36,6 +36,6 @@ pre {
 }
 
 .touchscreenTextInput {
-  position: element('input');
+  position: element(#input);
   opacity: 0;
 }

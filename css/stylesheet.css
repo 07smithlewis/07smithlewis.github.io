@@ -57,14 +57,14 @@ pre {
   }
 }
 
-@media only screen and (max-width: 650px) and (orientation:portrait) {
+@media only screen and (max-height: 650px) and (orientation:portrait) {
   .left, .main, .right {
     height:120%;
     left:0%;
   }
 }
 
-@media only screen and (max-width: 520px) and (orientation:portrait) {
+@media only screen and (max-height: 520px) and (orientation:portrait) {
   .left, .main, .right {
     font-size: 3.06vh; /* 100/58 * (16/9) */
   }

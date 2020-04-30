@@ -44,15 +44,28 @@ pre {
   bottom: 5px;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 650px) and (orientation:landscape) {
   .left, .main, .right {
     width:120%;
     left:0%;
   }
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 520px) and (orientation:landscape) {
   .left, .main, .right {
     font-size: 3.06vw; /* 100/58 * (16/9) */
+  }
+}
+
+@media only screen and (max-width: 650px) and (orientation:portrait) {
+  .left, .main, .right {
+    height:120%;
+    left:0%;
+  }
+}
+
+@media only screen and (max-width: 520px) and (orientation:portrait) {
+  .left, .main, .right {
+    font-size: 3.06vh; /* 100/58 * (16/9) */
   }
 }

@@ -180,7 +180,6 @@ export class UserInterface {
       }
       var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
       div.style.fontSize = fontSize.toString() + 'px';
-      console.log(window.innerWidth);
     }
     setInterval(updateFontSize, 100, this);
 

@@ -171,7 +171,12 @@ export class UserInterface {
 
     function updateFontSize(outputObject) {
       var div = document.getElementById(outputObject.divId);
-      var fontMaxSize = Math.floor(window.innerWidth / 58.);
+      var fontMaxSize = undefined;
+      if (window.innerWidth > 800) {
+        fontMaxSize = Math.floor(window.innerWidth * 0.8 / 58.);
+      } else {
+        var fontMaxSize = Math.floor(window.innerWidth / 58.);
+      }
       var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
       div.style.fontSize = fontSize.toString() + 'px';
       console.log(div.style.fontSize);

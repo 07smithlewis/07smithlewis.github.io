@@ -23,7 +23,6 @@ export class CvRead {
   constructor(commands, userInterface) {
     this.userInterface = userInterface;
     this.commands = commands;
-    this.readOld = commands.read;
 
     var json = undefined;
     function jsonLoaded(jsonDump) {
@@ -60,7 +59,7 @@ export class CvRead {
     typingPause(this);
   }
 
-  read(command, userInterfaceObject) {
+  read(userInterfaceObject) {
     var cv = this.cv;
 
     function subsection(number) {
@@ -73,33 +72,67 @@ export class CvRead {
 
     var commandSplit = command.toLowerCase().split(/[ ]+/);
     switch (commandSplit[0]) {
+      case 'help':
+        if (commandSplit.length > 1) {
+          switch (commandSplit[1]) {
+            case 'help':
+              return commands.consoleResponses['commands']['help']['help'];
+              break;
+            case 'c':
+              return commands.consoleResponses['commands']['c']['help'];
+              break;
+            case 'e':
+              return commands.consoleResponses['commands']['e']['help'];
+              break;
+            case 'h':
+              return commands.consoleResponses['commands']['h']['help'];
+              break;
+            case 's':
+              return commands.consoleResponses['commands']['s']['help'];
+              break;
+            case 'o':
+              return commands.consoleResponses['commands']['o']['help'];
+              break;
+            case 'exit':
+              return commands.consoleResponses['commands']['exit']['help'];
+              break;
+            case 'back':
+              return commands.consoleResponses['commands']['back']['help'];
+              break;
+            default:
+              return commands.consoleResponses['commands']['help']['default'];
+          }
+        } else {
+          return commands.consoleResponses['help']['response'];
+        }
+        break;
       case "c":
         subsection(0);
-        return "";
+        return cv['commands']['c']['response'];
         break;
       case "e":
         subsection(1);
-        return "";
+        return cv['commands']['e']['response'];
         break;
       case "h":
         subsection(2);
-        return "";
+        return cv['commands']['h']['response'];
         break;
       case "s":
         subsection(3);
-        return "";
+        return cv['commands']['s']['response'];
         break;
       case "o":
         subsection(4);
-        return "";
+        return cv['commands']['o']['response'];
         break;
       case "exit":
         userInterfaceObject.clearScreen();
         this.userInterface.commands = this.userInterface.commandsDefault;
         userInterfaceObject.updateConsoleHistory(userInterfaceObject.commands.consoleStart);
-        return "";
+        return cv['commands']['exit']['response'];
         break;
-      case "home":
+      case "back":
         function typingPause() {
           if (cv !== undefined) {
             userInterfaceObject.clearScreen();
@@ -115,10 +148,10 @@ export class CvRead {
           }
         }
         typingPause();
-        return "";
+        return cv['commands']['back']['response'];
         break;
       default:
-        return this.commands.consoleResponses['default'];
+        return cv['commands']['default'];
     }
   }
 }

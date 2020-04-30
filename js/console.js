@@ -164,8 +164,8 @@ export class UserInterface {
     document.addEventListener("keypress", event => {
       switch (event.keyCode) {
         case 13:
-          var command = document.getElementById(this.mobileOverlayId).innetText.replace(/[\n\r]+/g, '');
-          document.getElementById(this.mobileOverlayId).innetText = '';
+          var command = document.getElementById(this.htmlElementIdInput).innerText.replace(/[\n\r]+/g, '');
+          document.getElementById(this.htmlElementIdInput).innetText = '';
           this.updateConsoleHistory("'" + command + "'");
           var text = this.commands.read(command, this);
           if (text != '') {

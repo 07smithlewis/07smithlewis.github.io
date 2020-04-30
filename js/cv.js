@@ -76,34 +76,34 @@ export class CvRead {
         if (commandSplit.length > 1) {
           switch (commandSplit[1]) {
             case 'help':
-              return commands.consoleResponses['commands']['help']['help'];
+              return cv['commands']['help']['help'];
               break;
             case 'c':
-              return commands.consoleResponses['commands']['c']['help'];
+              return cv['commands']['c']['help'];
               break;
             case 'e':
-              return commands.consoleResponses['commands']['e']['help'];
+              return cv['commands']['e']['help'];
               break;
             case 'h':
-              return commands.consoleResponses['commands']['h']['help'];
+              return cv['commands']['h']['help'];
               break;
             case 's':
-              return commands.consoleResponses['commands']['s']['help'];
+              return cv['commands']['s']['help'];
               break;
             case 'o':
-              return commands.consoleResponses['commands']['o']['help'];
+              return cv['commands']['o']['help'];
               break;
             case 'exit':
-              return commands.consoleResponses['commands']['exit']['help'];
+              return cv['commands']['exit']['help'];
               break;
             case 'back':
-              return commands.consoleResponses['commands']['back']['help'];
+              return cv['commands']['back']['help'];
               break;
             default:
-              return commands.consoleResponses['commands']['help']['default'];
+              return cv['commands']['help']['default'];
           }
         } else {
-          return commands.consoleResponses['help']['response'];
+          return cv['help']['response'];
         }
         break;
       case "c":

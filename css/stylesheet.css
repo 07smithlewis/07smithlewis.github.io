@@ -44,10 +44,6 @@ pre {
   bottom: 5px;
 }
 
-.overlay {
-  z-index: 9;
-}
-
 @media screen and (max-width:800px) {
   .left, .main, .right {
     width:120%;

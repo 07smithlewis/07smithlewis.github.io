@@ -1,7 +1,7 @@
 {
   "welcome wagon": " _____             _  _    _       _   _        _   \n/  ___|           (_)| |  | |     | \\ | |      | |  \n\\ `--.  _ __ ___   _ | |_ | |__   |  \\| |  ___ | |_ \n `--. \\| '_ ` _ \\ | || __|| '_ \\  | . ` | / _ \\| __|\n/\\__/ /| | | | | || || |_ | | | | | |\\  ||  __/| |_ \n\\____/ |_| |_| |_||_| \\__||_| |_| \\_| \\_/ \\___| \\__| \n\nHi! I’m Lewis, a theoretical physicist with a long standing passion for computer science.\nThis website was initially going to be a short project to help me start learning HTML/JavaScript, however I was having so much fun that I decided to finish it and use it as a nexus of all the places you can find me online.\n\nType HELP for a list of commands.",
   "commands": {
-    dictionary: {
+    "dictionary": {
       "help": "help", "h": "help", "?": "help",
       "cv": "cv", "c": "cv", "curriculum": "cv", "resume": "cv",
       "git": "git", "g": "git", "github": "git",

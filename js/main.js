@@ -8,10 +8,10 @@ userInterface.initialize();
 commands.read = function read(command, userInterfaceObject) {
 
   var commandSplit = command.toLowerCase().split(/[ ]+/);
-  switch (commands.consoleResponses.dictionary(commandSplit[0])) {
+  switch (commands.consoleResponses['dictionary'][commandSplit[0]]) {
     case 'help':
       if (commandSplit.length > 1) {
-        switch (commands.consoleResponses.dictionary(commandSplit[1])) {
+        switch (commands.consoleResponses['dictionary'][commandSplit[1]]) {
           case 'help':
             return commands.consoleResponses['help']['help'];
             break;

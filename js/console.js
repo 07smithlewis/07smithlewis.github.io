@@ -169,7 +169,10 @@ export class UserInterface {
       switch (event.keyCode) {
         case 13:
           this.updateConsoleHistory("'" + this.consoleState + "'");
-          this.updateConsoleHistory(this.commands.read(this.consoleState, this));
+          var text = this.commands.read(this.consoleState, this);
+          if (text != '') {
+            this.updateConsoleHistory(text);
+          }
           this.consoleState = '';
           break;
         default:

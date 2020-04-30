@@ -196,6 +196,7 @@ export class UserInterface {
       this.drawScreen();
     });
 
+    document.getElementById(this.mobileOverlayId).removeEventListener("keypress");
     document.getElementById(this.mobileOverlayId).addEventListener("input", () => {
       this.consoleState += document.getElementById(this.mobileOverlayId).innerText.replace(/[\n\r]+/g, '');
       document.getElementById(this.mobileOverlayId).innerText = '';

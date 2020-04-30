@@ -34,6 +34,7 @@ export class UserInterface {
     this.typingQue = [0, 0];
     this.cursorToggled = 0;
     this.fontSize = 16;
+    this.charWidthMultiplier = 0.5;
     this.typeSpeed = 2;
     this.newlineDelay = 300;
   }
@@ -170,13 +171,12 @@ export class UserInterface {
     setInterval(toggleCursor, 500, this);
 
     function updateFontSize(outputObject) {
-      var charWidthMultiplier = 0.6;
       var div = document.getElementById(outputObject.divId);
       var fontMaxSize = undefined;
       if (window.innerWidth > 800) {
-        fontMaxSize = Math.floor(window.innerWidth * 0.8 / 58. / charWidthMultiplier);
+        fontMaxSize = Math.floor(window.innerWidth * 0.8 / 58. / outputObject.charWidthMultiplier);
       } else {
-        var fontMaxSize = Math.floor(window.innerWidth / 58. / charWidthMultiplier);
+        var fontMaxSize = Math.floor(window.innerWidth / 58. / outputObject.charWidthMultiplier);
       }
       var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
       div.style.fontSize = fontSize.toString() + 'px';

@@ -25,7 +25,7 @@ pre {
   background-color:#000000;
   color: #41FF00;
   font-family: monospace;
-  font-size: min(16px, 2.7vw); /* 100/58 * (16/9) * 0.9 */
+  font-size: min(16pt, 2.7vw); /* 100/58 * (16/9) * 0.9 */
   word-wrap: break-word;
   position: fixed;
   bottom: 5px;

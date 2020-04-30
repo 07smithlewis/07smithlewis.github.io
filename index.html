@@ -16,8 +16,11 @@
     <div id='main' class="main">
 
       <p id='output'></p>
-      <p id='input'></p>
-      <p id='overlay' contenteditable="true" class="touchscreenTextInput"></p>
+
+      <div id="container" style="position: relative;">
+        <p id='input' style="position:absolute; top:0; left:0;"></p>
+        <p id='overlay' contenteditable="true" class="touchscreenTextInput"></p>
+      </div>
 
       <script type="module" src="./js/main.js"></script>
 

@@ -181,7 +181,7 @@ export class UserInterface {
       var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
       div.style.fontSize = fontSize.toString() + 'px';
     }
-    setInterval(updateFontSize, 100, this);
+    //setInterval(updateFontSize, 100, this);
 
     document.addEventListener("keypress", event => {
       switch (event.keyCode) {

@@ -33,7 +33,7 @@ export class UserInterface {
     this.typing = 0;
     this.typingQue = [0, 0];
     this.cursorToggled = 0;
-    this.fontSize = 14;
+    this.fontSize = 16;
     this.typeSpeed = 2;
     this.newlineDelay = 300;
   }

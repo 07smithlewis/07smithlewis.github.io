@@ -59,7 +59,7 @@ export class CvRead {
     typingPause(this);
   }
 
-  read(userInterfaceObject) {
+  read(command, userInterfaceObject) {
     var cv = this.cv;
 
     function subsection(number) {

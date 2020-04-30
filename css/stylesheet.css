@@ -59,7 +59,7 @@ pre {
 
 @media only screen and (max-height: 650px) and (orientation:portrait) {
   .left, .main, .right {
-    height:120%;
+    width:120%;
     left:0%;
   }
 }

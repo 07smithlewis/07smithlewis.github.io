@@ -48,6 +48,6 @@ pre {
   .left, .main, .right {
     width:120%;
     left:0%;
-    font-size: calc(100% / 58 * 16 / 9);
+    font-size: calc(100vw / 58 * 16 / 9);
   }
 }

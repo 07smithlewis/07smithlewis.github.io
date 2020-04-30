@@ -53,6 +53,6 @@ pre {
 
 @media only screen and (max-width: 520px) {
   .left, .main, .right {
-    font-size: 3.06513409962vw; /* 100/58 * (16/9) */
+    font-size: 3.06vw; /* 100/58 * (16/9) */
   }
 }

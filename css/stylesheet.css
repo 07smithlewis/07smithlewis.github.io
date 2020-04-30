@@ -23,9 +23,9 @@ pre {
 .main {
   overflow-y:scroll;
   padding-right:20%;
-  width:100%;
+  width:110%;
   height:100%;
-  left:10%;
+  left:5%;
 }
 
 .right {
@@ -38,7 +38,7 @@ pre {
   float:left;
   color: #41FF00;
   font-family: monospace;
-  font-size: min(16px, 2.45vw); /* 100/58 * (16/9) * 0.8 */
+  font-size: min(16px, 2.7vw); /* 100/58 * (16/9) * 0.9 */
   word-wrap: break-word;
   position: fixed;
   bottom: 5px;

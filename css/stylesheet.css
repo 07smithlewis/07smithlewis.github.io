@@ -44,10 +44,15 @@ pre {
   bottom: 5px;
 }
 
-@media only screen and (max-width: 520px) {
+@media only screen and (max-width: 650px) {
   .left, .main, .right {
     width:120%;
     left:0%;
-    font-size: calc(100vw / 58 * 16 / 9);
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .left, .main, .right {
+    font-size: 3.06513409962vw; /* 100/58 * (16/9) */
   }
 }

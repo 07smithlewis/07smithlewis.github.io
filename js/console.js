@@ -170,10 +170,11 @@ export class UserInterface {
     setInterval(toggleCursor, 500, this);
 
     function updateFontSize(outputObject) {
+      div = document.getElementById(outputObject.divId);
       var fontMaxSize = Math.floor(window.innerWidth / 58.);
-      if (parseInt(document.getElementById(outputObject.divId).style.fontSize) > fontMaxSize) {
-        document.getElementById(outputObject.divId).style.fontSize = fontMaxSize.toString() + 'px';
-      }
+      var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
+      div.style.fontSize = fontSize.toString() + 'px';
+      console.log(div.style.fontSize);
     }
     setInterval(updateFontSize, 100, this);
 

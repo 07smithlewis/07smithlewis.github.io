@@ -6,7 +6,7 @@
       "cv": "cv", "c": "cv", "curriculum": "cv", "resume": "cv",
       "git": "git", "g": "git", "github": "git",
       "link": "link", "l": "link", "linkedin": "link"
-    }
+    },
     "help": {
       "response": "For more info on a specific command type HELP [command]\nCommand list:\nCV        View my current resume\nGIT       Go to my GitHub\nLINK      Go to my LinkedIn\nHELP      Display command list",
       "help": "Displays help information on all commands.\n\nHELP [command]:\n\n    Displays help information on given command",

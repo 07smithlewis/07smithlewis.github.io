@@ -46,7 +46,7 @@ export class CvRead {
       if (userInterface.typing == 0 && cvReadObject.cv !== undefined) {
         userInterface.clearScreen();
         userInterface.updateConsoleHistory(
-          cvReadObject.cv['title'] + '\n\n' + cvReadObject.cv['top text'][0]
+          cvReadObject.cv['title'] + '\n' + cvReadObject.cv['top text'][0]
         );
         var i;
         for (i = 0; i < cvReadObject.cv['headings'].length; i++) {

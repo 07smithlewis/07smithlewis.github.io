@@ -170,12 +170,13 @@ export class UserInterface {
     setInterval(toggleCursor, 500, this);
 
     function updateFontSize(outputObject) {
+      var charWidthMultiplier = 0.5;
       var div = document.getElementById(outputObject.divId);
       var fontMaxSize = undefined;
       if (window.innerWidth > 800) {
-        fontMaxSize = Math.floor(window.innerWidth * 0.8 / 58.);
+        fontMaxSize = Math.floor(window.innerWidth * 0.8 / 58. / charWidthMultiplier);
       } else {
-        var fontMaxSize = Math.floor(window.innerWidth / 58.);
+        var fontMaxSize = Math.floor(window.innerWidth / 58. / charWidthMultiplier);
       }
       var fontSize = Math.min(fontMaxSize, outputObject.fontSize);
       div.style.fontSize = fontSize.toString() + 'px';

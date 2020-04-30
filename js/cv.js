@@ -103,7 +103,7 @@ export class CvRead {
               return cv['commands']['help']['default'];
           }
         } else {
-          return cv['help']['response'];
+          return cv['commands']['help']['response'];
         }
         break;
       case "c":

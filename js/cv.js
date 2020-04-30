@@ -45,7 +45,9 @@ export class CvRead {
     function typingPause(cvReadObject) {
       if (userInterface.typing == 0 && cvReadObject.cv !== undefined) {
         userInterface.clearScreen();
-        userInterface.updateConsoleHistory(cvReadObject.cv['title']);
+        userInterface.updateConsoleHistory(
+          cvReadObject.cv['title'] + '\n\n' + cvReadObject.cv['top text'][0]
+        );
         var i;
         for (i = 0; i < cvReadObject.cv['headings'].length; i++) {
           userInterface.updateConsoleHistory(
@@ -66,7 +68,7 @@ export class CvRead {
       userInterfaceObject.clearScreen();
       userInterfaceObject.updateConsoleHistoryInstant(cv['title']);
       userInterfaceObject.updateConsoleHistory(
-        cv['headings'][number] + "\n\n" + cv['content+'][number]
+        cv['top text'][1] + "\n\n" + cv['headings'][number] + "\n\n" + cv['content+'][number]
       );
     }
 
@@ -136,7 +138,9 @@ export class CvRead {
         function typingPause() {
           if (cv !== undefined) {
             userInterfaceObject.clearScreen(false);
-            userInterfaceObject.updateConsoleHistoryInstant(cv['title']);
+            userInterfaceObject.updateConsoleHistoryInstant(
+              cv['title'] + '\n\n' + cv['top text'][0]
+            );
             var i;
             for (i = 0; i < cv['headings'].length; i++) {
               userInterfaceObject.updateConsoleHistoryInstant(

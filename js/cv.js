@@ -73,10 +73,10 @@ export class CvRead {
     }
 
     var commandSplit = command.toLowerCase().split(/[ ]+/);
-    switch (commandSplit[0]) {
+    switch (cv['commands'].dictionary(commandSplit[0])) {
       case 'help':
         if (commandSplit.length > 1) {
-          switch (commandSplit[1]) {
+          switch (cv['commands'].dictionary(commandSplit[1])) {
             case 'help':
               return cv['commands']['help']['help'];
               break;

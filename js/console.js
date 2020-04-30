@@ -244,7 +244,7 @@ export class Commands {
 
   read(command, userInterfaceObject) {
     var commandSplit = command.toLowerCase().split(/[ ]+/);
-    switch (commandSplit[0]) {
+    switch (this.consoleResponses.dictionary[commandSplit[0]]) {
       default:
         return this.consoleResponses['default'];
     }

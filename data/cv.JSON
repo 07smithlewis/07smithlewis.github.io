@@ -34,8 +34,18 @@
     "2020       MIT OpenCourseware: 6.006 Introduction to Algorithms\n           • Computer Science theory\n           • Course Description:\n           This course provides an introduction to mathematical modeling of computational problems. It covers the common algorithms, algorithmic paradigms, and data structures used to solve these problems. The course emphasizes the relationship between algorithms and programming, and introduces basic performance measures and analysis techniques for these problems.\n\n2020       MIT OpenCourseware: 6.046J Design and Analysis of Algorithms\n           • Computer Science theory\n           • Course Description:\n           This is an intermediate algorithms course with an emphasis on teaching techniques for the design and analysis of efficient algorithms, emphasizing methods of application. Topics include divide-and-conquer, randomization, dynamic programming, greedy algorithms, incremental improvement, complexity, and cryptography.\n\n2017       Computational Fluid Dynamics Summer Study Internship (Perm State National Research University, Russia)\n           • Programming Skills: Parallel Programming with MPI and OpenMP using Fortran/C."
   ],
   "commands": {
+    dictionary: {
+      "help": "help", "h": "help", "?": "help",
+      "back": "back", "return": "back", "cv": "back", "curriculum": "back", "resume": "back",
+      "exit": "exit", "home": "exit", "esc": "exit",
+      "c": "c", "contact": "c",
+      "e": "e", "education": "e",
+      "h": "h", "employment": "h",
+      "s": "s", "skills": "s",
+      "o": "o", "other": "o"
+    },
     "help": {
-      "response": "To get more details on a subsection, type the letter to the left of the subsection heading\n\nCommand list:\nBACK      Return to the cv overview\nEXIT      Return to the home page\nHELP      Display command list",
+      "response": "To get more details on a subsection, type the letter to the left of the subsection heading\n\nCommand list:\n<arg>      Expand subsection arg\nBACK      Return to the cv overview\nEXIT      Return to the home page\nHELP      Display command list",
       "help": "Displays help information on all commands.\n\nHELP [command]:\n\n    Displays help information on given command",
       "default": "Command not found"
     },

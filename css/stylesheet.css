@@ -41,6 +41,5 @@ pre {
 
 .input2 {
   float: right;
-/*calc(5% + min(16pt, 2.7vw) * 9/16 * 3);*/
-  width: calc(90% - (5% + min(16pt, 2.7vw) * 9/16 * 3))
+  width: calc(100% - min(16pt, 2.7vw) * 9/16 * 3)
 }

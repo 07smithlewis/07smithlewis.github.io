@@ -38,9 +38,3 @@ pre {
 .touchscreenTextInput {
   opacity: 0;
 }
-
-.input {
-  position: absolute;
-  left: 0px
-  top: 0px
-}

@@ -28,9 +28,14 @@ pre {
   font-size: min(16pt, 2.7vw); /* 100/58 * (16/9) * 0.9 */
   word-wrap: break-word;
   position: fixed;
-  bottom: 5px;
+  bottom: 0px;
   -webkit-text-size-adjust:none;
   -ms-text-size-adjust:none;
   -moz-text-size-adjust:none;
   text-size-adjust:none;
+}
+
+.touchscreenTextInput {
+  height:100%;
+  bottom: 0px;
 }

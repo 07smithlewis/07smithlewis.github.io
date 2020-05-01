@@ -165,7 +165,7 @@ export class UserInterface {
       switch (event.keyCode) {
         case 13:
           var command = document.getElementById(this.htmlElementIdInput).innerText.replace(/[\n\r]+/g, '');
-          document.getElementById(this.htmlElementIdInput).innerText = '';
+          setTimeout(() => {document.getElementById(this.htmlElementIdInput).innerText = ''}, 5);
           this.updateConsoleHistory("'" + command + "'");
           var text = this.commands.read(command, this);
           if (text != '') {

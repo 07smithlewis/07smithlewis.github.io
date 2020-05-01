@@ -164,6 +164,7 @@ export class UserInterface {
     document.addEventListener("keypress", event => {
       switch (event.keyCode) {
         case 13:
+          console.log(this.htmlElementIdInput);
           var command = document.getElementById(this.htmlElementIdInput).innerText.replace(/[\n\r]+/g, '');
           document.getElementById(this.htmlElementIdInput).innetText = '';
           this.updateConsoleHistory("'" + command + "'");

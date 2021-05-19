@@ -1,0 +1,8 @@
+{
+  "@context": "https://w3id.org/openbadges/v2",
+  "id": "https://smithle.co.uk/blockcerts/test_revocation_list.json",
+  "type": "RevocationList",
+  "issuer": "https://smithle.co.uk/blockcerts/test_id.json",
+  "revokedAssertions": [
+  ]
+}
